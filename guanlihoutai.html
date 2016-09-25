@@ -1,0 +1,1881 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>Title</title>
+	<link rel="stylesheet" href="css/banner.css">
+	<link rel="stylesheet" href="css/combined.css">
+	<link rel="stylesheet" href="css/layoutit.css">
+</head>
+<body style="min-height: 660px; cursor: auto;" class="edit">
+<div class="navbar navbar-inverse navbar-fixed-top">
+	<div class="navbar-inner">
+		<div class="container-fluid">
+			<button data-target=".nav-collapse" data-toggle="collapse" class="btn btn-navbar" type="button"> <span class="icon-bar"></span> <span class="icon-bar"></span> <span class="icon-bar"></span> </button>
+			<a class="brand" href="#"><img src="img/favicon.png">YGGX管理后台<!--<span class="label">BETA</span>--></a>
+			<div class="nav-collapse collapse">
+				<ul class="nav" id="menu-layoutit">
+					<li class="divider-vertical"></li>
+					<li>
+						<div class="btn-group" data-toggle="buttons-radio">
+							<button type="button" id="edit" class="btn btn-primary active"><i class="icon-edit icon-white"></i>编辑</button>
+							<!--<button type="button" class="btn btn-primary" id="devpreview"><i class="icon-eye-close icon-white"></i>布局编辑</button>-->
+							<button type="button" class="btn btn-primary" id="sourcepreview"><i class="icon-eye-open icon-white"></i>预览</button>
+						</div>
+						<div class="btn-group">
+							<button class="btn btn-primary" href="/share/index" role="button" data-toggle="modal" data-target="#shareModal"><i class="icon-share icon-white"></i>保存</button>
+							<button class="btn btn-primary" href="#clear" id="clear"><i class="icon-trash icon-white"></i>清空</button>
+						</div>
+						<!--<div class="btn-group">
+							<button class="btn btn-primary" href="#undo" id="undo" ><i class="icon-arrow-left icon-white"></i>后退</button>
+							<button class="btn btn-primary" href="#redo" id="redo" ><i class="icon-arrow-right icon-white"></i>前进</button>
+						</div>
+
+						<div class="btn-group">
+							<button class="btn btn-primary" href="#undo" id="play_back" ><i class="icon-play icon-white"></i><s>播放</s></button>
+						</div>-->
+					</li>
+				</ul>
+			</div>
+			<!--/.nav-collapse -->
+		</div>
+	</div>
+</div>
+<div class="container-fluid">
+	<div class="row-fluid">
+		<div class="">
+			<div class="sidebar-nav">
+				<!--布局模板选择-->
+				<!--<ul class="nav nav-list accordion-group">
+					<li class="nav-header">
+						<div class="pull-right popover-info"><i class="icon-question-sign "></i>
+							<div class="popover fade right">
+								<div class="arrow"></div>
+								<h3 class="popover-title">功能</h3>
+								<div class="popover-content">在这里设置你的栅格布局, 栅格总数默认为12, 用空格分割每列的栅格值, 如果您需要了解更多信息，请访问<a target="_blank" href="http://twitter.github.io/bootstrap/scaffolding.html#gridSystem">Bootstrap栅格系统.</a></div>
+							</div>
+						</div>
+						<i class="icon-plus icon-white"></i> 布局设置 </li>
+					<li style="display: list-item;" class="rows" id="estRows">
+						<div class="lyrow ui-draggable"> <a href="#close" class="remove label label-important"><i class="icon-remove icon-white"></i>删除</a> <span class="drag label"><i class="icon-move"></i>拖动</span>
+							<div class="preview">
+								<input value="12" type="text">
+							</div>
+							<div class="view">
+								<div class="row-fluid clearfix">
+									<div class="span12 column"></div>
+								</div>
+							</div>
+						</div>
+						<div class="lyrow ui-draggable"> <a href="#close" class="remove label label-important"><i class="icon-remove icon-white"></i>删除</a> <span class="drag label"><i class="icon-move"></i>拖动</span>
+							<div class="preview">
+								<input value="6 6" type="text">
+							</div>
+							<div class="view">
+								<div class="row-fluid clearfix">
+									<div class="span6 column"></div>
+									<div class="span6 column"></div>
+								</div>
+							</div>
+						</div>
+						<div class="lyrow ui-draggable"> <a href="#close" class="remove label label-important"><i class="icon-remove icon-white"></i>删除</a> <span class="drag label"><i class="icon-move"></i>拖动</span>
+							<div class="preview">
+								<input value="8 4" type="text">
+							</div>
+							<div class="view">
+								<div class="row-fluid clearfix">
+									<div class="span8 column"></div>
+									<div class="span4 column"></div>
+								</div>
+							</div>
+						</div>
+						<div class="lyrow ui-draggable"> <a href="#close" class="remove label label-important"><i class="icon-remove icon-white"></i>删除</a> <span class="drag label"><i class="icon-move"></i>拖动</span>
+							<div class="preview">
+								<input value="4 4 4" type="text">
+							</div>
+							<div class="view">
+								<div class="row-fluid clearfix">
+									<div class="span4 column"></div>
+									<div class="span4 column"></div>
+									<div class="span4 column"></div>
+								</div>
+							</div>
+						</div>
+						<div class="lyrow ui-draggable"> <a href="#close" class="remove label label-important"><i class="icon-remove icon-white"></i>删除</a> <span class="drag label"><i class="icon-move"></i>拖动</span>
+							<div class="preview">
+								<input value="2 6 4" type="text">
+							</div>
+							<div class="view">
+								<div class="row-fluid clearfix">
+									<div class="span2 column"></div>
+									<div class="span6 column"></div>
+									<div class="span4 column"></div>
+								</div>
+							</div>
+						</div>
+					</li>
+				</ul>-->
+				<ul class="nav nav-list accordion-group">
+					<li class="nav-header"><i class="icon-plus icon-white"></i> 实物首页 <span class="label label-important">NEW!</span>
+						<div class="pull-right popover-info"><i class="icon-question-sign "></i>
+							<div class="popover fade right">
+								<div class="arrow"></div>
+								<h3 class="popover-title">帮助</h3>
+								<div class="popover-content">拖放组件到布局容器. 拖入后, 你可以配置显示样式. 如果有任何疑问可访问 <a target="_blank" href="http://twitter.github.io/bootstrap/javascript.html">JavaScript.</a></div>
+							</div>
+						</div>
+					</li>
+					<li style="display: none;" class="boxes mute" id="elmJS">
+						<div class="delete box box-element ui-draggable"> <a href="#close" class="remove label label-important"><i class="icon-remove icon-white"></i>删除</a> <span class="drag label"><i class="icon-move"></i>拖动</span>
+							<span class="configuration"><button type="button" class="btn btn-mini" data-target="#editorModal" role="button" data-toggle="modal">编辑</button></span>
+							<div class="preview">轮换图</div>
+							<div class="view">
+								<div class="carrousel">
+									<div class="search">
+										<div class="Widthmen">
+											<!--<div class="widthbai">
+												<div class="logohead">
+													<p class="yggx"><img src="images/yggx-new-logo4.png"></p>
+													&lt;!&ndash;<p class="tongyong"><a href="#">内页</a></p>&ndash;&gt;
+													<p class="slect">
+														<i class="total_station BakgrdColor">全站</i>
+														<i class="home_station displaynone">本站</i>
+														&lt;!&ndash;  <i class="medic">铺货</i>&ndash;&gt;
+														<input value="" type="text">
+														<a class="seek" href="#">搜索</a>
+														<span>
+                        <a target="_blank" href="http://www.yggx.com/product_list/item?productName=收银机">雅共专供收款机</a>
+                        <a target="_blank" href="http://www.yggx.com/product_list/item?productName=百货">百货</a>
+                        <a class="org" target="_blank" href="http://www.yggx.com/product_list/item?productName=月饼">月饼</a>
+                        <a target="_blank" href="http://www.yggx.com/product_list/item?productName=第一店">食用油</a>
+                        <a target="_blank" href="http://www.yggx.com/product_list/item?productName=冰果">冰果</a>
+                        <a target="_blank" href="http://www.yggx.com/product_list/item?productName=滴客">滴客</a>
+                        <a target="_blank" href="http://www.yggx.com/product_list/item?productName=T恤">T恤</a>
+                        <a target="_blank" href="http://www.yggx.com/product_list/item?productName=拉图">拉图</a>
+                        <a target="_blank" href="http://www.yggx.com/product_list/item?productName=金湖">金湖</a>
+                        <a target="_blank" href="http://www.yggx.com/product_list/item?productName=罐头">罐头</a>
+
+                    </span>
+													</p>
+
+												</div>
+											</div>-->
+											<div class="widthbai backgrounderst">
+												<div class="navigation">
+													<div class="category">
+														<p class="whole">全部商品分类<i></i></p>
+														<ul class="yggx">
+															<!-- <li>
+																 <b></b>
+																 <i class="i_1"></i>
+																 <p><a href="#">护肤</a></p>
+																 <p><a href="#">美妆</a></p>
+																 <p><a href="#">日化</a></p>
+															 </li>
+															 <li>
+																 <b></b>
+																 <i class="i_2"></i>
+																 <p><a href="#">工艺</a></p>
+																 <p><a href="#">百货</a></p>
+																 <p><a href="#">包装</a></p>
+															 </li>
+															 <li>
+																 <i class="i_3"></i>
+																 <p><a href="#">零食</a></p>
+																 <p><a href="#">粮油</a></p>
+																 <p><a href="#">酒水</a></p>
+																 <p><a href="#">保健</a></p>
+															 </li>
+															 <li>
+																 <i class="i_4"></i>
+																 <p><a href="#">数码</a></p>
+																 <p><a href="#">家电</a></p>
+																 <p><a href="#">办公</a></p>
+															 </li>
+															 <li>
+																 <i class="i_5"></i>
+																 <p><a href="#">母婴</a></p>
+																 <p><a href="#">玩具</a></p>
+																 <p><a href="#">童装</a></p>
+															 </li>
+															 <li>
+																 <i class="i_6"></i>
+																 <p><a href="#">鞋子</a></p>
+																 <p><a href="#">箱包</a></p>
+																 <p><a href="#">配饰</a></p>
+															 </li>
+															 <li>
+																 <i class="i_7"></i>
+																 <p><a href="#">女装</a></p>
+																 <p><a href="#">男装</a></p>
+																 <p><a href="#">内衣</a></p>
+															 </li>
+															 <li>
+																 <i class="i_8"></i>
+																 <p><a href="#">家纺家饰</a></p>
+																 <p><a href="#">家装</a></p>
+																 <p><a href="#">照明</a></p>
+															 </li>
+															 <li>
+																 <i class="i_9"></i>
+																 <p><a href="#">农资</a></p>
+																 <p><a href="#">农副</a></p>
+																 <p><a href="#">特产</a></p>
+															 </li>
+															 <li>
+																 <i class="i_10"></i>
+																 <p><a href="#">运动</a></p>
+																 <p><a href="#">户外汽车</a></p>
+															 </li>-->
+															<li><b></b><i class="i_1"></i>
+																<p><a href="http://www.yggx.com/product_list/item.html?categoryId=8" contenteditable="false">护肤&nbsp;&nbsp;&nbsp;美妆&nbsp;&nbsp;&nbsp;日化</a>
+																</p></li>
+															<li><b></b><i class="i_2"></i>
+																<p><a href="http://www.yggx.com/product_list/item.html?categoryId=11" contenteditable="false">百货&nbsp;&nbsp;&nbsp;工艺&nbsp;&nbsp;&nbsp;包装</a>
+																</p></li>
+															<li><b></b><i class="i_3"></i>
+																<p><a href="http://www.yggx.com/product_list/item.html?categoryId=204" contenteditable="false">零食&nbsp;&nbsp;&nbsp;粮油&nbsp;&nbsp;&nbsp;酒水&nbsp;&nbsp;&nbsp;保健</a>
+																</p></li>
+															<li><b></b><i class="i_4"></i>
+																<p><a href="http://www.yggx.com/product_list/item.html?categoryId=351" contenteditable="false">数码&nbsp;&nbsp;&nbsp;家电&nbsp;&nbsp;&nbsp;办公</a>
+																</p></li>
+															<li><b></b><i class="i_5"></i>
+																<p><a href="http://www.yggx.com/product_list/item.html?categoryId=420" contenteditable="false">母婴&nbsp;&nbsp;&nbsp;玩具&nbsp;&nbsp;&nbsp;童装</a>
+																</p></li>
+															<li><b></b><i class="i_6"></i>
+																<p><a href="http://www.yggx.com/product_list/item.html?categoryId=476" contenteditable="false">鞋子&nbsp;&nbsp;&nbsp;箱包&nbsp;&nbsp;&nbsp;配饰</a>
+																</p></li>
+															<li><b></b><i class="i_7"></i>
+																<p><a href="http://www.yggx.com/product_list/item.html?categoryId=555" contenteditable="false">女装&nbsp;&nbsp;&nbsp;内衣&nbsp;&nbsp;&nbsp;男装</a>
+																</p></li>
+															<li><b></b><i class="i_8"></i>
+																<p><a href="http://www.yggx.com/product_list/item.html?categoryId=664" contenteditable="false">家纺&nbsp;&nbsp;&nbsp;家饰&nbsp;&nbsp;&nbsp;家具</a>
+																</p></li>
+															<li><b></b><i class="i_9"></i>
+																<p><a href="http://www.yggx.com/product_list/item.html?categoryId=750" contenteditable="false">农资&nbsp;&nbsp;&nbsp;农副&nbsp;&nbsp;&nbsp;特产</a>
+																</p></li>
+															<li><b></b><i class="i_10"></i>
+																<p><a href="http://www.yggx.com/product_list/item.html?categoryId=781" contenteditable="false">运动&nbsp;&nbsp;&nbsp;户外&nbsp;&nbsp;&nbsp;汽车</a>
+																</p></li>
+														</ul>
+													</div>
+													<div class="switchover">
+														<p><a href="http://www.yggx.com/index/index.html">首页</a></p>
+														<p><a class="bianming" href="http://bianmin.yggx.com/">便民充值</a></p>
+														<p><a class="shiwu" href="http://www.yggx.com/product/index">体验店采购</a></p>
+														<p><a class="puhuo" href="http://www.yggx.com/puhuo/index.html">体验店铺货</a></p>
+														<p><a class="kuajing" href="http://hw.q.yggx.com/">跨境商品直采</a></p>
+													</div>
+												</div>
+											</div>
+										</div>
+									</div>
+									<div class="carrousel">
+										<div class="banner">
+											<div class="width_qd_dai">
+												<ul class="Img">
+													<li><a target="_blank" href="http://activity.yggx.com/Activity/MidAutumn.html" toggle="#16012e" backgr=""><img src="images/product_03.jpg"></a></li>
+													<li><a target="_blank" href="http://item.yggx.com/2934" toggle="#1488ff" backgr=""><img src="images/product_06.jpg"></a></li>
+													<li><a target="_blank" href="http://item.yggx.com/1521" toggle="#ff9002" backgr=""><img src="images/product_07.jpg"></a></li>
+													<li><a target="_blank" href="http://item.yggx.com/2404" toggle="#f96d18" backgr=""><img src="images/product_04.jpg"></a></li>
+													<li><a target="_blank" href="http://item.yggx.com/2474" toggle="#4abdf3" backgr=""><img src="images/product_05.jpg"></a></li>
+												</ul>
+												<div class="right_reminder">
+													<p>
+														<span><i></i></span>
+														<span><b>Hi ,  你好 !  </b><s>欢迎来到YGGX.COM</s></span>
+													</p>
+													<div class="notice">
+														<span>公告</span>
+														<a href="#">更多&gt;&gt;</a>
+													</div>
+													<ul>
+														<li class="sales_promotion"><a target="_blank" contenteditable="false" href="http://jhhxq.yggx.q.yggx.com/">[美味]金湖海鲜干货，全场包邮！</a></li>
+														<li><a target="_blank" contenteditable="false" href="http://qcpz.ta.q.yggx.com/">[促销]青春铺子尿不湿，支持铺货！</a></li>
+														<li><a target="_blank" contenteditable="false" href="http://item.yggx.com/2934">[必备]雅共专供收银机，体验店标配</a></li>
+														<li><a target="_blank" contenteditable="false" href="http://dydhsy.yggx.q.yggx.com/">[健康]第一店手工压榨花生油！</a></li>
+														<li><a target="_blank" contenteditable="false" href="http://item.yggx.com/2396">[推荐]滴客皂液组合，支持铺货！</a></li>
+													</ul>
+													<div class="overseas">
+														<a target="_blank" href="http://item.yggx.com/2996">
+															<span contenteditable="false">黄金冠黄桃罐头</span>
+															<s contenteditable="false">果肉有嚼劲 原香更难忘</s>
+															<b><img src="img/product_03.png" alt=""></b>
+														</a>
+													</div>
+												</div>
+												<div class="bottom_reaction">
+													<ul>
+														<li>
+															<p>
+																<a target="_blank" class="show_qd_dai" href="http://item.yggx.com/368">
+																	<span><img src="img/product_02_2.jpg" alt=""></span>
+																	<span><img src="img/product_02.jpg" alt=""></span>
+																</a>
+															</p>
+														</li>
+														<li>
+															<p>
+																<a target="_blank" class="show_qd_dai" href="http://item.yggx.com/594">
+																	<span><img src="img/product_04_4.jpg" alt=""></span>
+																	<span><img src="img/product_04.jpg" alt=""></span>
+																</a>
+															</p>
+														</li>
+														<li>
+															<p>
+																<a target="_blank" class="show_qd_dai" href="http://item.yggx.com/460">
+																	<span><img src="img/product_05_5.jpg" alt=""></span>
+																	<span><img src="img/product_05.jpg" alt=""></span>
+																</a>
+															</p>
+														</li>
+														<li>
+															<p>
+																<a target="_blank" class="show_qd_dai" href="http://item.yggx.com/2595">
+																	<span><img src="img/product_06_6.jpg" alt=""></span>
+																	<span><img src="img/product_06.jpg" alt=""></span>
+																</a>
+															</p>
+														</li>
+														<li>
+															<p>
+																<a target="_blank" class="show_qd_dai" href="http://item.yggx.com/1228">
+																	<span><img src="img/product_07_7.jpg" alt=""></span>
+																	<span><img src="img/product_07.jpg" alt=""></span>
+																</a>
+															</p>
+														</li>
+													</ul>
+												</div>
+											</div>
+											<div class="stretch">
+												<ul>
+													<!--<li>1</li>
+													<li>2</li>
+													<li>3</li>
+													<li>4</li>
+													<li>5</li>-->
+												</ul>
+											</div>
+										</div>
+									</div>
+								</div>
+								<!--<div class="carousel slide" id="myCarousel">
+									<ol class="carousel-indicators">
+										<li class="active" data-slide-to="0" data-target="#myCarousel"></li>
+										<li data-slide-to="1" data-target="#myCarousel" class=""></li>
+										<li data-slide-to="2" data-target="#myCarousel" class=""></li>
+									</ol>
+									<div class="carousel-inner">
+										<div class="item active"> <img alt="" src="img/1.jpg">
+											<div class="carousel-caption" contenteditable="true">
+												<h4>棒球</h4>
+												<p>棒球运动是一种以棒打球为主要特点，集体性、对抗性很强的球类运动项目，在美国、日本尤为盛行。</p>
+											</div>
+										</div>
+										<div class="item"> <img alt="" src="img/2.jpg">
+											<div class="carousel-caption" contenteditable="true">
+												<h4>冲浪</h4>
+												<p>冲浪是以海浪为动力，利用自身的高超技巧和平衡能力，搏击海浪的一项运动。运动员站立在冲浪板上，或利用腹板、跪板、充气的橡皮垫、划艇、皮艇等驾驭海浪的一项水上运动。</p>
+											</div>
+										</div>
+										<div class="item"> <img alt="" src="img/3.jpg">
+											<div class="carousel-caption" contenteditable="true">
+												<h4>自行车</h4>
+												<p>以自行车为工具比赛骑行速度的体育运动。1896年第一届奥林匹克运动会上被列为正式比赛项目。环法赛为最著名的世界自行车锦标赛。</p>
+											</div>
+										</div>
+									</div>
+									<a data-slide="prev" href="#myCarousel" class="left carousel-control">‹</a> <a data-slide="next" href="#myCarousel" class="right carousel-control">›</a> </div>-->
+							</div>
+						</div>
+						<div class="delete box box-element ui-draggable"> <a href="#close" class="remove label label-important"><i class="icon-remove icon-white"></i>删除</a> <span class="drag label"><i class="icon-move"></i>拖动</span>
+							<span class="configuration"><button type="button" class="btn btn-mini" data-target="#editorModal" role="button" data-toggle="modal">编辑</button></span>
+							<div class="preview">本周新品</div>
+							<div class="view">
+								<!-- Button to trigger modal -->
+								<div class="bli" style="width:1200px;margin:auto">
+									<p class="navigation"><span>本周新品</span><s>精心为您推荐</s></p>
+									<div class="this_week slide">
+										<ul>
+											<li style="width: 210px;" class="">
+												<div>
+													<a class="product_img" href="#"><img alt="" src="img/banner1.jpg"></a>
+													<p class="content1">
+											<span>
+												<a href="#">
+													<img src="img/product1_1.jpg" alt="">
+													<s contenteditable="false">18K白金蓝宝石吊坠</s>
+													<b><dfn>分销价</dfn>￥<em contenteditable="false">1950.00</em></b>
+												</a>
+												<a href="#">
+													<img src="img/product1_2.jpg" alt="">
+													<s contenteditable="false">18K白金蓝宝石吊坠</s>
+													<b><dfn>分销价</dfn>￥<em contenteditable="false">1950.00</em></b>
+												</a>
+											</span>
+														<span>
+												<a href="#">
+													<img src="img/product1_3.jpg" alt="">
+													<s contenteditable="false">18K白金蓝宝石吊坠</s>
+													<b><dfn>分销价</dfn>￥<em contenteditable="false">1950.00</em></b>
+												</a>
+												<a href="#">
+													<img src="img/product1_4.jpg" alt="">
+													<s contenteditable="false">18K白金蓝宝石吊坠</s>
+													<b><dfn>分销价</dfn>￥<em contenteditable="false">1950.00</em></b>
+												</a>
+											</span>
+													</p>
+												</div>
+											</li>
+											<li class="wid" style="width: 779px;">
+												<div>
+													<a class="product_img" href="#"><img class="background" src="img/banner2.jpg" alt=""></a>
+													<p class="content2">
+											<span>
+												<a href="#">
+													<img src="img/product1_1.jpg" alt="">
+													<s contenteditable="false">18K白金蓝宝石吊坠</s>
+													<b><dfn>分销价</dfn>￥<em contenteditable="false">1950.00</em></b>
+												</a>
+												<a href="#">
+													<img src="img/product1_2.jpg" alt="">
+													<s contenteditable="false">18K白金蓝宝石吊坠</s>
+													<b><dfn>分销价</dfn>￥<em contenteditable="false">1950.00</em></b>
+												</a>
+											</span>
+														<span>
+												<a href="#">
+													<img src="img/product1_3.jpg" alt="">
+													<s contenteditable="false">18K白金蓝宝石吊坠</s>
+													<b><dfn>分销价</dfn>￥<em contenteditable="false">1950.00</em></b>
+												</a>
+												<a href="#">
+													<img src="img/product1_4.jpg" alt="">
+													<s contenteditable="false">18K白金蓝宝石吊坠</s>
+													<b><dfn>分销价</dfn>￥<em contenteditable="false">1950.00</em></b>
+												</a>
+											</span>
+													</p>
+												</div>
+											</li>
+											<li class="" style="width: 210px;">
+												<div>
+													<a class="product_img" href="#"><img class="background" src="img/banner3.jpg" alt=""></a>
+													<p class="content3">
+											<span>
+												<a href="#">
+													<img src="img/product1_1.jpg" alt="">
+													<s contenteditable="false">18K白金蓝宝石吊坠</s>
+													<b><dfn>分销价</dfn>￥<em contenteditable="false">1950.00</em></b>
+												</a>
+												<a href="#">
+													<img src="img/product1_2.jpg" alt="">
+													<s contenteditable="false">18K白金蓝宝石吊坠</s>
+													<b><dfn>分销价</dfn>￥<em contenteditable="false">1950.00</em></b>
+												</a>
+											</span>
+														<span>
+												<a href="#">
+													<img src="img/product1_3.jpg" alt="">
+													<s contenteditable="false">18K白金蓝宝石吊坠</s>
+													<b><dfn>分销价</dfn>￥<em contenteditable="false">1950.00</em></b>
+												</a>
+												<a href="#">
+													<img src="img/product1_4.jpg" alt="">
+													<s contenteditable="false">18K白金蓝宝石吊坠</s>
+													<b><dfn>分销价</dfn>￥<em contenteditable="false">1950.00</em></b>
+												</a>
+											</span>
+													</p>
+												</div>
+											</li>
+										</ul>
+									</div>
+								</div>
+							</div>
+						</div>
+						<div class="delete box box-element ui-draggable"> <a href="#close" class="remove label label-important"><i class="icon-remove icon-white"></i>删除</a> <span class="drag label"><i class="icon-move"></i>拖动</span> <span class="configuration"><button type="button" class="btn btn-mini" data-target="#editorModal" role="button" data-toggle="modal">编辑</button>
+							<!--a class="btn btn-mini" href="#" rel="navbar-fixed-top">Navbar fixed top</a-->
+              </span>
+							<div class="preview">厂商明星产品</div>
+							<div class="view">
+								<div style="width:1200px;margin:auto">
+									<p class="navigation"><span>厂商明星产品</span><s>为您推荐</s></p>
+									<div class="star_product">
+										<p class="left_position"><img src="img/banner4.jpg" alt=""></p>
+										<ul class="darkness">
+											<li class="switchover_qd_dai">
+												<a contenteditable="false">饼干</a>
+											</li>
+											<li class="product_factor">
+												<p>
+													<a href="#">
+														<img src="img/product2_1.jpg" alt="">
+														<s  contenteditable="false">拉图兰爵干红葡萄酒</s>
+														<b><dfn>分销价</dfn>￥<em contenteditable="false">159.00</em></b>
+													</a>
+													<a href="#">
+														<img src="img/product2_2.jpg" alt="">
+														<s contenteditable="false">拉图兰爵干红葡萄酒</s>
+														<b><dfn>分销价</dfn>￥<em contenteditable="false">159.00</em></b>
+													</a>
+													<a href="#">
+														<img src="img/product2_3.jpg" alt="">
+														<s contenteditable="false">拉图兰爵干红葡萄酒</s>
+														<b><dfn>分销价</dfn>￥<em contenteditable="false">159.00</em></b>
+													</a>
+													<a href="#">
+														<img src="img/product2_4.jpg" alt="">
+														<s contenteditable="false">拉图兰爵干红葡萄酒</s>
+														<b><dfn>分销价</dfn>￥<em contenteditable="false">159.00</em></b>
+													</a>
+												</p>
+												<p>
+													<a href="#">
+														<img src="img/product2_5.jpg" alt="">
+														<s contenteditable="false">拉图兰爵干红葡萄酒</s>
+														<b><dfn>分销价</dfn>￥<em contenteditable="false">159.00</em></b>
+													</a>
+													<a href="#">
+														<img src="img/product2_6.jpg" alt="">
+														<s contenteditable="false">拉图兰爵干红葡萄酒</s>
+														<b><dfn>分销价</dfn>￥<em contenteditable="false">159.00</em></b>
+													</a>
+													<a href="#">
+														<img src="img/product2_4.jpg" alt="">
+														<s contenteditable="false">拉图兰爵干红葡萄酒</s>
+														<b><dfn>分销价</dfn>￥<em contenteditable="false">159.00</em></b>
+													</a>
+													<a href="#">
+														<img src="img/product2_8.jpg" alt="">
+														<s contenteditable="false">拉图兰爵干红葡萄酒</s>
+														<b><dfn>分销价</dfn>￥<em contenteditable="false">159.00</em></b>
+													</a>
+												</p>
+											</li>
+											<li class="product_factor conceal">
+												<p>
+													<a href="#">
+														<img src="img/product2_1.jpg" alt="">
+														<s contenteditable="false">拉图兰爵干红葡萄酒1</s>
+														<b><dfn>分销价</dfn>￥<em contenteditable="false">159.00</em></b>
+													</a>
+													<a href="#">
+														<img src="img/product2_2.jpg" alt="">
+														<s contenteditable="false">拉图兰爵干红葡萄酒1</s>
+														<b><dfn>分销价</dfn>￥<em contenteditable="false">159.00</em></b>
+													</a>
+													<a href="#">
+														<img src="img/product2_3.jpg" alt="">
+														<s contenteditable="false">拉图兰爵干红葡萄酒1</s>
+														<b><dfn>分销价</dfn>￥<em contenteditable="false">159.00</em></b>
+													</a>
+													<a href="#">
+														<img src="img/product2_4.jpg" alt="">
+														<s contenteditable="false">拉图兰爵干红葡萄酒1</s>
+														<b><dfn>分销价</dfn>￥<em contenteditable="false">159.00</em></b>
+													</a>
+												</p>
+												<p>
+													<a href="#">
+														<img src="img/product2_5.jpg" alt="">
+														<s contenteditable="false">拉图兰爵干红葡萄酒</s>
+														<b><dfn>分销价</dfn>￥<em contenteditable="false">159.00</em></b>
+													</a>
+													<a href="#">
+														<img src="img/product2_6.jpg" alt="">
+														<s contenteditable="false">拉图兰爵干红葡萄酒</s>
+														<b><dfn>分销价</dfn>￥<em contenteditable="false">159.00</em></b>
+													</a>
+													<a href="#">
+														<img src="img/product2_4.jpg" alt="">
+														<s contenteditable="false">拉图兰爵干红葡萄酒</s>
+														<b><dfn>分销价</dfn>￥<em contenteditable="false">159.00</em></b>
+													</a>
+													<a href="#">
+														<img src="img/product2_8.jpg" alt="">
+														<s contenteditable="false">拉图兰爵干红葡萄酒</s>
+														<b><dfn>分销价</dfn>￥<em contenteditable="false">159.00</em></b>
+													</a>
+												</p>
+											</li>
+										</ul>
+										<div class="manufacturer_cut carousel_li">
+											<s class="top_position"><b class="zuo_left"></b></s>
+											<ul style="margin-top: 0px;">
+												<li><a href="3"><img src="img/friendlink14.jpg" alt=""></a></li>
+												<li><a href="4"><img src="img/friendlink8.jpg" alt=""></a></li>
+												<li><a href="5"><img src="img/friendlink8.jpg" alt=""></a></li>
+												<li><a href="6"><img src="img/friendlink8.jpg" alt=""></a></li>
+												<li><a href="7"><img src="img/friendlink8.jpg" alt=""></a></li>
+												<li><a href="8"><img src="img/friendlink8.jpg" alt=""></a></li>
+												<li><a href="9"><img src="img/friendlink8.jpg" alt=""></a></li>
+												<li><a href="10"><img src="img/friendlink8.jpg" alt=""></a></li>
+												<li><a href="1"><img src="img/firendlink1.jpg" alt=""></a></li>
+												<li><a href="2"><img src="img/friendlink18.jpg" alt=""></a></li>
+											</ul>
+											<s class="bottom_position"><b class="you_right"></b></s>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+						<div class="delete box box-element ui-draggable"> <a href="#close" class="remove label label-important"><i class="icon-remove icon-white"></i>删除</a> <span class="drag label"><i class="icon-move"></i>拖动</span> <span class="configuration"><button type="button" class="btn btn-mini" data-target="#editorModal" role="button" data-toggle="modal">编辑</button>
+              </span>
+							<div class="preview">厂商铺货产品</div>
+							<div class="view">
+								<div style="width:1200px;margin:auto">
+									<p class="navigation"><span>厂商铺货产品</span><s>为您推荐</s></p>
+									<div class="medic_product">
+										<ul>
+											<li>
+												<a class="rght_border_none" href="#">
+													<img src="img/product3_4.jpg" alt="">
+													<s contenteditable="false">Dove/多芬 洗发水洗发乳 </s>
+													<b><dfn>分销价</dfn>￥<em contenteditable="false">159.00</em></b>
+												</a>
+											</li>
+											<li>
+												<a class="rght_border_none" href="#">
+													<img src="img/product3_2.jpg" alt="">
+													<s contenteditable="false">Dove/多芬 洗发水洗发乳 </s>
+													<b><dfn>分销价</dfn>￥<em contenteditable="false">159.00</em></b>
+												</a>
+											</li>
+											<li>
+												<a class="rght_border_none" href="#">
+													<img src="img/product3_3.jpg" alt="">
+													<s contenteditable="false">Dove/多芬 洗发水洗发乳 </s>
+													<b><dfn>分销价</dfn>￥<em contenteditable="false">159.00</em></b>
+												</a>
+											</li>
+											<li>
+												<a href="#">
+													<img src="img/product3_4.jpg" alt="">
+													<s contenteditable="false">Dove/多芬 洗发水洗发乳 </s>
+													<b><dfn>分销价</dfn>￥<em contenteditable="false">159.00</em></b>
+												</a>
+											</li>
+											<li>
+												<a class="panic_buying" href="#">
+													<img src="img/banner5.jpg" alt="">
+												</a>
+											</li>
+										</ul>
+									</div>
+								</div>
+							</div>
+						</div>
+						<div class="delete box box-element ui-draggable"> <a href="#close" class="remove label label-important"><i class="icon-remove icon-white"></i>删除</a> <span class="drag label"><i class="icon-move"></i>拖动</span> <span class="configuration"><button type="button" class="btn btn-mini" data-target="#editorModal" role="button" data-toggle="modal">编辑</button> <span class="btn-group"> <a class="btn btn-mini dropdown-toggle" data-toggle="dropdown" href="#">图标颜色<span class="caret"></span></a>
+              <ul class="dropdown-menu">
+                <li class="floor_one"><a href="#" rel=""><s>图一</s><b class="floor_one"></b></a></li>
+                <li class="floor_two"><a href="#" rel="alert-info"><s>图二</s><b class="floor_two"></b></a></li>
+                <li class="floor_three"><a href="#" rel="alert-error"><s>图三</s><b class="floor_three"></b></a></li>
+                <li class="floor_four"><a href="#" rel="alert-success"><s>图四</s><b class="floor_four"></b></a></li>
+                <li class="floor_five"><a href="#" rel="alert-success"><s>图五</s><b class="floor_five"></b></a></li>
+                <li class="floor_six"><a href="#" rel="alert-success"><s>图六</s><b class="floor_six"></b></a></li>
+                <li class="floor_seven"><a href="#" rel="alert-success"><s>图七</s><b class="floor_seven"></b></a></li>
+              </ul>
+              </span><span class="btn-group">
+              <ul class="dropdown-menu">
+                <li class="active"><a href="#" rel="">默认</a></li>
+                <li class=""><a href="#" rel="tabs-below">底部</a></li>
+                <li class=""><a href="#" rel="tabs-left">靠左</a></li>
+                <li class=""><a href="#" rel="tabs-right">靠右</a></li>
+              </ul>
+              </span> </span>
+							<div class="preview">日化系列</div>
+							<div class="view">
+								<div style="width:1200px;margin:auto">
+									<p class="navigation"><b class="floor_one"></b><span contenteditable="false">日化系列</span><s contenteditable="false">DEPARTMENT SERIES</s></p>
+									<div class="storey_single">
+										<div class="left_width">
+											<a class="product_one" href="#"><img src="img/banner6.jpg" alt=""></a>
+											<ul>
+												<li>
+													<span>添加</span>
+													<a href="#" contenteditable="false">洗发水 <i>删除</i></a>
+													<a href="#" contenteditable="false">沐浴露 <i>删除</i></a>
+													<a href="#" contenteditable="false">卫生巾 <i>删除</i></a>
+													<a href="#" contenteditable="false">洗衣液 <i>删除</i></a>
+													<a href="#" contenteditable="false">洗洁精 <i>删除</i></a>
+													<a href="#" contenteditable="false">洗手液 <i>删除</i></a>
+													<a href="#" contenteditable="false">进口牙膏 <i>删除</i></a>
+													<a href="#" contenteditable="false">牙刷 <i>删除</i></a>
+													<a href="#" contenteditable="false">护肤套装 <i>删除</i></a>
+													<a href="#" contenteditable="false">面霜 <i>删除</i></a>
+												</li>
+											</ul>
+										</div>
+										<ul class="prue_qd_dai">
+											<li class="product_classify">
+												<a href="#">
+													<span><img src="img/product4_1.jpg" alt=""></span>
+													<s contenteditable="false">海飞丝清爽强力去屑洗发露</s>
+													<i>分销商价：<b>￥</b><em contenteditable="false">50.49</em></i>
+												</a>
+												<a href="#">
+													<span><img src="img/product4_2.jpg" alt=""></span>
+													<s contenteditable="false">海飞丝清爽强力去屑洗发露</s>
+													<i>分销商价：<b>￥</b><em contenteditable="false">50.49</em></i>
+												</a>
+												<a href="#">
+													<span><img src="img/product4_3.jpg" alt=""></span>
+													<s contenteditable="false">海飞丝清爽强力去屑洗发露</s>
+													<i>分销商价：<b>￥</b><em contenteditable="false">35.5</em></i>
+												</a>
+												<a href="#">
+													<span><img src="img/product4_4.jpg" alt=""></span>
+													<s contenteditable="false">海飞丝清爽强力去屑洗发露</s>
+													<i>分销商价：<b>￥</b><em contenteditable="false">28.00</em></i>
+												</a>
+											</li>
+											<li class="product_classify">
+												<a href="#">
+													<span><img src="img/product4_5.jpg" alt=""></span>
+													<s contenteditable="false">海飞丝清爽强力去屑洗发露</s>
+													<i>分销商价：<b>￥</b><em contenteditable="false">374.40</em></i>
+												</a>
+												<a href="#">
+													<span><img src="img/product4_6.jpg" alt=""></span>
+													<s contenteditable="false">海飞丝清爽强力去屑洗发露</s>
+													<i>分销商价：<b>￥</b><em contenteditable="false">323.20</em></i>
+												</a>
+												<a href="#">
+													<span><img src="img/product4_7.jpg" alt=""></span>
+													<s contenteditable="false">海飞丝清爽强力去屑洗发露</s>
+													<i>分销商价：<b>￥</b><em contenteditable="false">436.80</em></i>
+												</a>
+												<a href="#">
+													<span><img src="img/product4_6.jpg" alt=""></span>
+													<s contenteditable="false">海飞丝清爽强力去屑洗发露</s>
+													<i>分销商价：<b>￥</b><em contenteditable="false">323.20</em></i>
+												</a>
+											</li>
+											<li class="category_dai">
+												<b class="left_cut"></b>
+												<div class="tumble carousel_li">
+													<ul>
+														<li><a href="2"><img src="img/friendlink6.jpg" alt=""></a></li>
+														<li><a href="3"><img src="img/firendlink2.jpg" alt=""></a></li>
+														<li><a href="4"><img src="img/friendlink10.jpg" alt=""></a></li>
+														<li><a href="5"><img src="img/friendlink11.jpg" alt=""></a></li>
+														<li><a href="6"><img src="img/friendlink8.jpg" alt=""></a></li>
+														<li><a href="7"><img src="img/friendlink8.jpg" alt=""></a></li>
+														<li><a href="8"><img src="img/friendlink8.jpg" alt=""></a></li>
+														<li><a href="1"><img src="img/friendlink18.jpg" alt=""></a></li>
+													</ul>
+												</div>
+												<b class="right_cut"></b>
+											</li>
+										</ul>
+									</div>
+								</div>
+							</div>
+						</div>
+						<!--<div class="delete box box-element ui-draggable"> <a href="#close" class="remove label label-important"><i class="icon-remove icon-white"></i>删除</a> <span class="drag label"><i class="icon-move"></i>拖动</span> <span class="configuration"><button type="button" class="btn btn-mini" data-target="#editorModal" role="button" data-toggle="modal">编辑</button> <span class="btn-group">
+              <ul class="dropdown-menu">
+                <li class="active"><a href="#" rel="">默认</a></li>
+                <li class=""><a href="#" rel="tabs-below">底部</a></li>
+                <li class=""><a href="#" rel="tabs-left">靠左</a></li>
+                <li class=""><a href="#" rel="tabs-right">靠右</a></li>
+              </ul>
+              </span> </span>
+							<div class="preview">百货系列</div>
+							<div class="view">
+								<div style="width:1200px;margin:auto">
+									<p class="navigation"><b class="floor_two"></b><span>百货系列</span><s>DEPARTMENT  SERIES</s></p>
+									<div class="storey_single">
+										<div class="left_width">
+											<a class="product_one" href="#"><img src="img/banner6.jpg" alt=""></a>
+											<ul>
+												<li><a href="#" contenteditable="false">洗发水</a><a href="#" contenteditable="false">沐浴露</a></li>
+												<li><a href="#" contenteditable="false">卫生巾</a><a href="#" contenteditable="false">洗衣液</a></li>
+												<li><a href="#" contenteditable="false">洗洁精</a><a href="#" contenteditable="false">洗手液</a></li>
+												<li><a href="#" contenteditable="false">进口牙膏</a><a href="#" contenteditable="false">牙刷</a></li>
+												<li><a href="#" contenteditable="false">护肤套装</a><a href="#" contenteditable="false">面霜</a></li>
+											</ul>
+										</div>
+										<ul class="prue_qd_dai">
+											<li class="product_classify">
+												<a href="#">
+													<span><img src="img/product4_1.jpg" alt=""></span>
+													<s contenteditable="false">海飞丝清爽强力去屑洗发露</s>
+													<i>分销商价：<b>￥</b><em contenteditable="false">50.49</em></i>
+												</a>
+												<a href="#">
+													<span><img src="img/product4_2.jpg" alt=""></span>
+													<s contenteditable="false">海飞丝清爽强力去屑洗发露</s>
+													<i>分销商价：<b>￥</b><em contenteditable="false">50.49</em></i>
+												</a>
+												<a href="#">
+													<span><img src="img/product4_3.jpg" alt=""></span>
+													<s contenteditable="false">海飞丝清爽强力去屑洗发露</s>
+													<i>分销商价：<b>￥</b><em contenteditable="false">35.5</em></i>
+												</a>
+												<a href="#">
+													<span><img src="img/product4_4.jpg" alt=""></span>
+													<s contenteditable="false">海飞丝清爽强力去屑洗发露</s>
+													<i>分销商价：<b>￥</b><em contenteditable="false">28.00</em></i>
+												</a>
+											</li>
+											<li class="product_classify">
+												<a href="#">
+													<span><img src="img/product4_5.jpg" alt=""></span>
+													<s contenteditable="false">海飞丝清爽强力去屑洗发露</s>
+													<i>分销商价：<b>￥</b><em contenteditable="false">374.40</em></i>
+												</a>
+												<a href="#">
+													<span><img src="img/product4_6.jpg" alt=""></span>
+													<s contenteditable="false">海飞丝清爽强力去屑洗发露</s>
+													<i>分销商价：<b>￥</b><em contenteditable="false">323.20</em></i>
+												</a>
+												<a href="#">
+													<span><img src="img/product4_7.jpg" alt=""></span>
+													<s contenteditable="false">海飞丝清爽强力去屑洗发露</s>
+													<i>分销商价：<b>￥</b><em contenteditable="false">436.80</em></i>
+												</a>
+												<a href="#">
+													<span><img src="img/product4_6.jpg" alt=""></span>
+													<s contenteditable="false">海飞丝清爽强力去屑洗发露</s>
+													<i>分销商价：<b>￥</b><em contenteditable="false">323.20</em></i>
+												</a>
+											</li>
+											<li class="category_dai">
+												<b class="left_cut"></b>
+												<div class="tumble carousel_li">
+													<ul>
+														<li><a href="2"><img src="img/friendlink6.jpg" alt=""></a></li>
+														<li><a href="3"><img src="img/firendlink2.jpg" alt=""></a></li>
+														<li><a href="4"><img src="img/friendlink10.jpg" alt=""></a></li>
+														<li><a href="5"><img src="img/friendlink11.jpg" alt=""></a></li>
+														<li><a href="6"><img src="img/friendlink8.jpg" alt=""></a></li>
+														<li><a href="7"><img src="img/friendlink8.jpg" alt=""></a></li>
+														<li><a href="8"><img src="img/friendlink8.jpg" alt=""></a></li>
+														<li><a href="1"><img src="img/friendlink18.jpg" alt=""></a></li>
+													</ul>
+												</div>
+												<b class="right_cut"></b>
+											</li>
+										</ul>
+									</div>
+								</div>
+							</div>
+						</div>
+						<div class="delete box box-element ui-draggable"> <a href="#close" class="remove label label-important"><i class="icon-remove icon-white"></i>删除</a> <span class="drag label"><i class="icon-move"></i>拖动</span> <span class="configuration"><button type="button" class="btn btn-mini" data-target="#editorModal" role="button" data-toggle="modal">编辑</button> <span class="btn-group">
+              <ul class="dropdown-menu">
+                <li class="active"><a href="#" rel="">默认</a></li>
+                <li class=""><a href="#" rel="tabs-below">底部</a></li>
+                <li class=""><a href="#" rel="tabs-left">靠左</a></li>
+                <li class=""><a href="#" rel="tabs-right">靠右</a></li>
+              </ul>
+              </span> </span>
+							<div class="preview">零食系列</div>
+							<div class="view">
+								<div style="width:1200px;margin:auto">
+									<p class="navigation"><b class="floor_three"></b><span>零食系列</span><s>SNACK  SERIES</s></p>
+									<div class="storey_single">
+										<div class="left_width">
+											<a class="product_one" href="#"><img src="img/banner6.jpg" alt=""></a>
+											<ul>
+												<li><a href="#" contenteditable="false">洗发水</a><a href="#" contenteditable="false">沐浴露</a></li>
+												<li><a href="#" contenteditable="false">卫生巾</a><a href="#" contenteditable="false">洗衣液</a></li>
+												<li><a href="#" contenteditable="false">洗洁精</a><a href="#" contenteditable="false">洗手液</a></li>
+												<li><a href="#" contenteditable="false">进口牙膏</a><a href="#" contenteditable="false">牙刷</a></li>
+												<li><a href="#" contenteditable="false">护肤套装</a><a href="#" contenteditable="false">面霜</a></li>
+											</ul>
+										</div>
+										<ul class="prue_qd_dai">
+											<li class="product_classify">
+												<a href="#">
+													<span><img src="img/product4_1.jpg" alt=""></span>
+													<s contenteditable="false">海飞丝清爽强力去屑洗发露</s>
+													<i>分销商价：<b>￥</b><em contenteditable="false">50.49</em></i>
+												</a>
+												<a href="#">
+													<span><img src="img/product4_2.jpg" alt=""></span>
+													<s contenteditable="false">海飞丝清爽强力去屑洗发露</s>
+													<i>分销商价：<b>￥</b><em contenteditable="false">50.49</em></i>
+												</a>
+												<a href="#">
+													<span><img src="img/product4_3.jpg" alt=""></span>
+													<s contenteditable="false">海飞丝清爽强力去屑洗发露</s>
+													<i>分销商价：<b>￥</b><em contenteditable="false">35.5</em></i>
+												</a>
+												<a href="#">
+													<span><img src="img/product4_4.jpg" alt=""></span>
+													<s contenteditable="false">海飞丝清爽强力去屑洗发露</s>
+													<i>分销商价：<b>￥</b><em contenteditable="false">28.00</em></i>
+												</a>
+											</li>
+											<li class="product_classify">
+												<a href="#">
+													<span><img src="img/product4_5.jpg" alt=""></span>
+													<s contenteditable="false">海飞丝清爽强力去屑洗发露</s>
+													<i>分销商价：<b>￥</b><em contenteditable="false">374.40</em></i>
+												</a>
+												<a href="#">
+													<span><img src="img/product4_6.jpg" alt=""></span>
+													<s contenteditable="false">海飞丝清爽强力去屑洗发露</s>
+													<i>分销商价：<b>￥</b><em contenteditable="false">323.20</em></i>
+												</a>
+												<a href="#">
+													<span><img src="img/product4_7.jpg" alt=""></span>
+													<s contenteditable="false">海飞丝清爽强力去屑洗发露</s>
+													<i>分销商价：<b>￥</b><em contenteditable="false">436.80</em></i>
+												</a>
+												<a href="#">
+													<span><img src="img/product4_6.jpg" alt=""></span>
+													<s contenteditable="false">海飞丝清爽强力去屑洗发露</s>
+													<i>分销商价：<b>￥</b><em contenteditable="false">323.20</em></i>
+												</a>
+											</li>
+											<li class="category_dai">
+												<b class="left_cut"></b>
+												<div class="tumble carousel_li">
+													<ul>
+														<li><a href="2"><img src="img/friendlink6.jpg" alt=""></a></li>
+														<li><a href="3"><img src="img/firendlink2.jpg" alt=""></a></li>
+														<li><a href="4"><img src="img/friendlink10.jpg" alt=""></a></li>
+														<li><a href="5"><img src="img/friendlink11.jpg" alt=""></a></li>
+														<li><a href="6"><img src="img/friendlink8.jpg" alt=""></a></li>
+														<li><a href="7"><img src="img/friendlink8.jpg" alt=""></a></li>
+														<li><a href="8"><img src="img/friendlink8.jpg" alt=""></a></li>
+														<li><a href="1"><img src="img/friendlink18.jpg" alt=""></a></li>
+													</ul>
+												</div>
+												<b class="right_cut"></b>
+											</li>
+										</ul>
+									</div>
+								</div>
+							</div>
+						</div>
+						<div class="delete box box-element ui-draggable"> <a href="#close" class="remove label label-important"><i class="icon-remove icon-white"></i>删除</a> <span class="drag label"><i class="icon-move"></i>拖动</span> <span class="configuration"><button type="button" class="btn btn-mini" data-target="#editorModal" role="button" data-toggle="modal">编辑</button> <span class="btn-group">
+              <ul class="dropdown-menu">
+                <li class="active"><a href="#" rel="">默认</a></li>
+                <li class=""><a href="#" rel="tabs-below">底部</a></li>
+                <li class=""><a href="#" rel="tabs-left">靠左</a></li>
+                <li class=""><a href="#" rel="tabs-right">靠右</a></li>
+              </ul>
+              </span> </span>
+							<div class="preview">家电/办公系列</div>
+							<div class="view">
+								<div style="width:1200px;margin:auto">
+									<p class="navigation"><b class="floor_four"></b><span>家电/办公系列</span><s>APPLIANCE  SERIES</s></p>
+									<div class="storey_single">
+										<div class="left_width">
+											<a class="product_one" href="#"><img src="img/banner6.jpg" alt=""></a>
+											<ul>
+												<li><a href="#" contenteditable="false">洗发水</a><a href="#" contenteditable="false">沐浴露</a></li>
+												<li><a href="#" contenteditable="false">卫生巾</a><a href="#" contenteditable="false">洗衣液</a></li>
+												<li><a href="#" contenteditable="false">洗洁精</a><a href="#" contenteditable="false">洗手液</a></li>
+												<li><a href="#" contenteditable="false">进口牙膏</a><a href="#" contenteditable="false">牙刷</a></li>
+												<li><a href="#" contenteditable="false">护肤套装</a><a href="#" contenteditable="false">面霜</a></li>
+											</ul>
+										</div>
+										<ul class="prue_qd_dai">
+											<li class="product_classify">
+												<a href="#">
+													<span><img src="img/product4_1.jpg" alt=""></span>
+													<s contenteditable="false">海飞丝清爽强力去屑洗发露</s>
+													<i>分销商价：<b>￥</b><em contenteditable="false">50.49</em></i>
+												</a>
+												<a href="#">
+													<span><img src="img/product4_2.jpg" alt=""></span>
+													<s contenteditable="false">海飞丝清爽强力去屑洗发露</s>
+													<i>分销商价：<b>￥</b><em contenteditable="false">50.49</em></i>
+												</a>
+												<a href="#">
+													<span><img src="img/product4_3.jpg" alt=""></span>
+													<s contenteditable="false">海飞丝清爽强力去屑洗发露</s>
+													<i>分销商价：<b>￥</b><em contenteditable="false">35.5</em></i>
+												</a>
+												<a href="#">
+													<span><img src="img/product4_4.jpg" alt=""></span>
+													<s contenteditable="false">海飞丝清爽强力去屑洗发露</s>
+													<i>分销商价：<b>￥</b><em contenteditable="false">28.00</em></i>
+												</a>
+											</li>
+											<li class="product_classify">
+												<a href="#">
+													<span><img src="img/product4_5.jpg" alt=""></span>
+													<s contenteditable="false">海飞丝清爽强力去屑洗发露</s>
+													<i>分销商价：<b>￥</b><em contenteditable="false">374.40</em></i>
+												</a>
+												<a href="#">
+													<span><img src="img/product4_6.jpg" alt=""></span>
+													<s contenteditable="false">海飞丝清爽强力去屑洗发露</s>
+													<i>分销商价：<b>￥</b><em contenteditable="false">323.20</em></i>
+												</a>
+												<a href="#">
+													<span><img src="img/product4_7.jpg" alt=""></span>
+													<s contenteditable="false">海飞丝清爽强力去屑洗发露</s>
+													<i>分销商价：<b>￥</b><em contenteditable="false">436.80</em></i>
+												</a>
+												<a href="#">
+													<span><img src="img/product4_6.jpg" alt=""></span>
+													<s contenteditable="false">海飞丝清爽强力去屑洗发露</s>
+													<i>分销商价：<b>￥</b><em contenteditable="false">323.20</em></i>
+												</a>
+											</li>
+											<li class="category_dai">
+												<b class="left_cut"></b>
+												<div class="tumble carousel_li">
+													<ul>
+														<li><a href="2"><img src="img/friendlink6.jpg" alt=""></a></li>
+														<li><a href="3"><img src="img/firendlink2.jpg" alt=""></a></li>
+														<li><a href="4"><img src="img/friendlink10.jpg" alt=""></a></li>
+														<li><a href="5"><img src="img/friendlink11.jpg" alt=""></a></li>
+														<li><a href="6"><img src="img/friendlink8.jpg" alt=""></a></li>
+														<li><a href="7"><img src="img/friendlink8.jpg" alt=""></a></li>
+														<li><a href="8"><img src="img/friendlink8.jpg" alt=""></a></li>
+														<li><a href="1"><img src="img/friendlink18.jpg" alt=""></a></li>
+													</ul>
+												</div>
+												<b class="right_cut"></b>
+											</li>
+										</ul>
+									</div>
+								</div>
+							</div>
+						</div>
+						<div class="delete box box-element ui-draggable"> <a href="#close" class="remove label label-important"><i class="icon-remove icon-white"></i>删除</a> <span class="drag label"><i class="icon-move"></i>拖动</span> <span class="configuration"><button type="button" class="btn btn-mini" data-target="#editorModal" role="button" data-toggle="modal">编辑</button> <span class="btn-group">
+              <ul class="dropdown-menu">
+                <li class="active"><a href="#" rel="">默认</a></li>
+                <li class=""><a href="#" rel="tabs-below">底部</a></li>
+                <li class=""><a href="#" rel="tabs-left">靠左</a></li>
+                <li class=""><a href="#" rel="tabs-right">靠右</a></li>
+              </ul>
+              </span> </span>
+							<div class="preview">特产系列</div>
+							<div class="view">
+								<div style="width:1200px;margin:auto">
+									<p class="navigation"><b class="floor_five"></b><span>特产系列</span><s>SPECIALTY SERIES</s></p>
+									<div class="storey_single">
+										<div class="left_width">
+											<a class="product_one" href="#"><img src="img/banner6.jpg" alt=""></a>
+											<ul>
+												<li><a href="#" contenteditable="false">洗发水</a><a href="#" contenteditable="false">沐浴露</a></li>
+												<li><a href="#" contenteditable="false">卫生巾</a><a href="#" contenteditable="false">洗衣液</a></li>
+												<li><a href="#" contenteditable="false">洗洁精</a><a href="#" contenteditable="false">洗手液</a></li>
+												<li><a href="#" contenteditable="false">进口牙膏</a><a href="#" contenteditable="false">牙刷</a></li>
+												<li><a href="#" contenteditable="false">护肤套装</a><a href="#" contenteditable="false">面霜</a></li>
+											</ul>
+										</div>
+										<ul class="prue_qd_dai">
+											<li class="product_classify">
+												<a href="#">
+													<span><img src="img/product4_1.jpg" alt=""></span>
+													<s contenteditable="false">海飞丝清爽强力去屑洗发露</s>
+													<i>分销商价：<b>￥</b><em contenteditable="false">50.49</em></i>
+												</a>
+												<a href="#">
+													<span><img src="img/product4_2.jpg" alt=""></span>
+													<s contenteditable="false">海飞丝清爽强力去屑洗发露</s>
+													<i>分销商价：<b>￥</b><em contenteditable="false">50.49</em></i>
+												</a>
+												<a href="#">
+													<span><img src="img/product4_3.jpg" alt=""></span>
+													<s contenteditable="false">海飞丝清爽强力去屑洗发露</s>
+													<i>分销商价：<b>￥</b><em contenteditable="false">35.5</em></i>
+												</a>
+												<a href="#">
+													<span><img src="img/product4_4.jpg" alt=""></span>
+													<s contenteditable="false">海飞丝清爽强力去屑洗发露</s>
+													<i>分销商价：<b>￥</b><em contenteditable="false">28.00</em></i>
+												</a>
+											</li>
+											<li class="product_classify">
+												<a href="#">
+													<span><img src="img/product4_5.jpg" alt=""></span>
+													<s contenteditable="false">海飞丝清爽强力去屑洗发露</s>
+													<i>分销商价：<b>￥</b><em contenteditable="false">374.40</em></i>
+												</a>
+												<a href="#">
+													<span><img src="img/product4_6.jpg" alt=""></span>
+													<s contenteditable="false">海飞丝清爽强力去屑洗发露</s>
+													<i>分销商价：<b>￥</b><em contenteditable="false">323.20</em></i>
+												</a>
+												<a href="#">
+													<span><img src="img/product4_7.jpg" alt=""></span>
+													<s contenteditable="false">海飞丝清爽强力去屑洗发露</s>
+													<i>分销商价：<b>￥</b><em contenteditable="false">436.80</em></i>
+												</a>
+												<a href="#">
+													<span><img src="img/product4_6.jpg" alt=""></span>
+													<s contenteditable="false">海飞丝清爽强力去屑洗发露</s>
+													<i>分销商价：<b>￥</b><em contenteditable="false">323.20</em></i>
+												</a>
+											</li>
+											<li class="category_dai">
+												<b class="left_cut"></b>
+												<div class="tumble carousel_li">
+													<ul>
+														<li><a href="2"><img src="img/friendlink6.jpg" alt=""></a></li>
+														<li><a href="3"><img src="img/firendlink2.jpg" alt=""></a></li>
+														<li><a href="4"><img src="img/friendlink10.jpg" alt=""></a></li>
+														<li><a href="5"><img src="img/friendlink11.jpg" alt=""></a></li>
+														<li><a href="6"><img src="img/friendlink8.jpg" alt=""></a></li>
+														<li><a href="7"><img src="img/friendlink8.jpg" alt=""></a></li>
+														<li><a href="8"><img src="img/friendlink8.jpg" alt=""></a></li>
+														<li><a href="1"><img src="img/friendlink18.jpg" alt=""></a></li>
+													</ul>
+												</div>
+												<b class="right_cut"></b>
+											</li>
+										</ul>
+									</div>
+								</div>
+							</div>
+						</div>
+						<div class="delete box box-element ui-draggable"> <a href="#close" class="remove label label-important"><i class="icon-remove icon-white"></i>删除</a> <span class="drag label"><i class="icon-move"></i>拖动</span> <span class="configuration"><button type="button" class="btn btn-mini" data-target="#editorModal" role="button" data-toggle="modal">编辑</button> <span class="btn-group">
+              <ul class="dropdown-menu">
+                <li class="active"><a href="#" rel="">默认</a></li>
+                <li class=""><a href="#" rel="tabs-below">底部</a></li>
+                <li class=""><a href="#" rel="tabs-left">靠左</a></li>
+                <li class=""><a href="#" rel="tabs-right">靠右</a></li>
+              </ul>
+              </span> </span>
+							<div class="preview">服饰/配饰系列</div>
+							<div class="view">
+								<div style="width:1200px;margin:auto">
+									<p class="navigation"><b class="floor_six"></b><span>服饰/配饰系列</span><s>ACCESSORIES</s></p>
+									<div class="storey_single">
+										<div class="left_width">
+											<a class="product_one" href="#"><img src="img/banner6.jpg" alt=""></a>
+											<ul>
+												<li><a href="#" contenteditable="false">洗发水</a><a href="#" contenteditable="false">沐浴露</a></li>
+												<li><a href="#" contenteditable="false">卫生巾</a><a href="#" contenteditable="false">洗衣液</a></li>
+												<li><a href="#" contenteditable="false">洗洁精</a><a href="#" contenteditable="false">洗手液</a></li>
+												<li><a href="#" contenteditable="false">进口牙膏</a><a href="#" contenteditable="false">牙刷</a></li>
+												<li><a href="#" contenteditable="false">护肤套装</a><a href="#" contenteditable="false">面霜</a></li>
+											</ul>
+										</div>
+										<ul class="prue_qd_dai">
+											<li class="product_classify">
+												<a href="#">
+													<span><img src="img/product4_1.jpg" alt=""></span>
+													<s contenteditable="false">海飞丝清爽强力去屑洗发露</s>
+													<i>分销商价：<b>￥</b><em contenteditable="false">50.49</em></i>
+												</a>
+												<a href="#">
+													<span><img src="img/product4_2.jpg" alt=""></span>
+													<s contenteditable="false">海飞丝清爽强力去屑洗发露</s>
+													<i>分销商价：<b>￥</b><em contenteditable="false">50.49</em></i>
+												</a>
+												<a href="#">
+													<span><img src="img/product4_3.jpg" alt=""></span>
+													<s contenteditable="false">海飞丝清爽强力去屑洗发露</s>
+													<i>分销商价：<b>￥</b><em contenteditable="false">35.5</em></i>
+												</a>
+												<a href="#">
+													<span><img src="img/product4_4.jpg" alt=""></span>
+													<s contenteditable="false">海飞丝清爽强力去屑洗发露</s>
+													<i>分销商价：<b>￥</b><em contenteditable="false">28.00</em></i>
+												</a>
+											</li>
+											<li class="product_classify">
+												<a href="#">
+													<span><img src="img/product4_5.jpg" alt=""></span>
+													<s contenteditable="false">海飞丝清爽强力去屑洗发露</s>
+													<i>分销商价：<b>￥</b><em contenteditable="false">374.40</em></i>
+												</a>
+												<a href="#">
+													<span><img src="img/product4_6.jpg" alt=""></span>
+													<s contenteditable="false">海飞丝清爽强力去屑洗发露</s>
+													<i>分销商价：<b>￥</b><em contenteditable="false">323.20</em></i>
+												</a>
+												<a href="#">
+													<span><img src="img/product4_7.jpg" alt=""></span>
+													<s contenteditable="false">海飞丝清爽强力去屑洗发露</s>
+													<i>分销商价：<b>￥</b><em contenteditable="false">436.80</em></i>
+												</a>
+												<a href="#">
+													<span><img src="img/product4_6.jpg" alt=""></span>
+													<s contenteditable="false">海飞丝清爽强力去屑洗发露</s>
+													<i>分销商价：<b>￥</b><em contenteditable="false">323.20</em></i>
+												</a>
+											</li>
+											<li class="category_dai">
+												<b class="left_cut"></b>
+												<div class="tumble carousel_li">
+													<ul>
+														<li><a href="2"><img src="img/friendlink6.jpg" alt=""></a></li>
+														<li><a href="3"><img src="img/firendlink2.jpg" alt=""></a></li>
+														<li><a href="4"><img src="img/friendlink10.jpg" alt=""></a></li>
+														<li><a href="5"><img src="img/friendlink11.jpg" alt=""></a></li>
+														<li><a href="6"><img src="img/friendlink8.jpg" alt=""></a></li>
+														<li><a href="7"><img src="img/friendlink8.jpg" alt=""></a></li>
+														<li><a href="8"><img src="img/friendlink8.jpg" alt=""></a></li>
+														<li><a href="1"><img src="img/friendlink18.jpg" alt=""></a></li>
+													</ul>
+												</div>
+												<b class="right_cut"></b>
+											</li>
+										</ul>
+									</div>
+								</div>
+							</div>
+						</div>
+						<div class="delete box box-element ui-draggable"> <a href="#close" class="remove label label-important"><i class="icon-remove icon-white"></i>删除</a> <span class="drag label"><i class="icon-move"></i>拖动</span>
+							<span class="configuration"><button type="button" class="btn btn-mini" data-target="#editorModal" role="button" data-toggle="modal">编辑</button></span>
+							<div class="preview">铺货产品</div>
+							<div class="view">
+								<div class="accordion" id="myAccordion">
+									<div class="accordion-group">
+										<div class="accordion-heading"> <a class="accordion-toggle" data-toggle="collapse" data-parent="#myAccordion" href="#collapseOne" contenteditable="true"> 选项卡 #1 </a> </div>
+										<div id="collapseOne" class="accordion-body collapse in">
+											<div class="accordion-inner" contenteditable="true"> 功能块... </div>
+										</div>
+									</div>
+									<div class="accordion-group">
+										<div class="accordion-heading"> <a class="accordion-toggle" data-toggle="collapse" data-parent="#myAccordion" href="#collapseTwo" contenteditable="true"> 选项卡 #2 </a> </div>
+										<div id="collapseTwo" class="accordion-body collapse">
+											<div class="accordion-inner" contenteditable="true"> 功能块... </div>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>-->
+						<div class="delete box box-element ui-draggable"> <a href="#close" class="remove label label-important"><i class="icon-remove icon-white"></i>删除</a> <span class="drag label"><i class="icon-move"></i>拖动</span> <span class="configuration"><button type="button" class="btn btn-mini" data-target="#editorModal" role="button" data-toggle="modal">编辑</button>
+              </span>
+							<div class="preview">底部banner</div>
+							<div class="view">
+								<div style="width:1200px;margin:auto">
+									<div class="bottom_banner"><a target="_blank" href="http://item.yggx.com/399"><img src="img/banner13.jpg" alt=""></a></div>
+								</div>
+							</div>
+						</div>
+					</li>
+				</ul>
+				<ul class="nav nav-list accordion-group">
+					<li class="nav-header"><i class="icon-plus icon-white"></i> 基本CSS
+						<div class="pull-right popover-info"><i class="icon-question-sign "></i>
+							<div class="popover fade right">
+								<div class="arrow"></div>
+								<h3 class="popover-title">帮助</h3>
+								<div class="popover-content">这里提供了一系列基本元素样式，你可以通过区块右上角的编辑按钮修改样式设置。如需了解更多信息，请访问<a target="_blank" href="http://twitter.github.io/bootstrap/base-css.html">基本CSS.</a></div>
+							</div>
+						</div>
+					</li>
+					<li style="display: none;" class="boxes" id="elmBase">
+						<div class="box box-element ui-draggable"> <a href="#close" class="remove label label-important"><i class="icon-remove icon-white"></i>删除</a> <span class="drag label"><i class="icon-move"></i>拖动</span>
+							<span class="configuration"><button type="button" class="btn btn-mini" data-target="#editorModal" role="button" data-toggle="modal">编辑</button> <span class="btn-group"> <a class="btn btn-mini dropdown-toggle" data-toggle="dropdown" href="#">对齐 <span class="caret"></span></a>
+              <ul class="dropdown-menu">
+                <li class="active"><a href="#" rel="">默认</a></li>
+                <li class=""><a href="#" rel="text-left">靠左</a></li>
+                <li class=""><a href="#" rel="text-center">居中</a></li>
+                <li class=""><a href="#" rel="text-right">靠右</a></li>
+              </ul>
+              </span> <span class="btn-group"> <a class="btn btn-mini dropdown-toggle" data-toggle="dropdown" href="#">标记 <span class="caret"></span></a>
+              <ul class="dropdown-menu">
+                <li class="active"><a href="#" rel="">默认</a></li>
+                <li class=""><a href="#" rel="muted">禁用</a></li>
+                <li class=""><a href="#" rel="text-warning">警告</a></li>
+                <li class=""><a href="#" rel="text-error">错误</a></li>
+                <li class=""><a href="#" rel="text-info">提示</a></li>
+                <li class=""><a href="#" rel="text-success">成功</a></li>
+              </ul>
+              </span>
+			  </span>
+				 <div class="preview">标题栏</div>
+				 <div class="view">
+					<h3 contenteditable="true">h3. 这是一套可视化布局系统.</h3>
+				 </div>
+				 </div>
+				 <div class="box box-element ui-draggable"> <a href="#close" class="remove label label-important"><i class="icon-remove icon-white"></i>删除</a> <span class="drag label"><i class="icon-move"></i>拖动</span> <span class="configuration"><button type="button" class="btn btn-mini" data-target="#editorModal" role="button" data-toggle="modal">编辑</button> <span class="btn-group"> <a class="btn btn-mini dropdown-toggle" data-toggle="dropdown" href="#">对齐 <span class="caret"></span></a>
+              <ul class="dropdown-menu">
+                <li class="active"><a href="#" rel="">默认</a></li>
+                <li class=""><a href="#" rel="text-left">靠左</a></li>
+                <li class=""><a href="#" rel="text-center">居中</a></li>
+                <li class=""><a href="#" rel="text-right">靠右</a></li>
+              </ul>
+              </span> <span class="btn-group"> <a class="btn btn-mini dropdown-toggle" data-toggle="dropdown" href="#">标记 <span class="caret"></span></a>
+              <ul class="dropdown-menu">
+                <li class="active"><a href="#" rel="">默认</a></li>
+                <li class=""><a href="#" rel="muted">禁用</a></li>
+                <li class=""><a href="#" rel="text-warning">警告</a></li>
+                <li class=""><a href="#" rel="text-error">错误</a></li>
+                <li class=""><a href="#" rel="text-info">提示</a></li>
+                <li class=""><a href="#" rel="text-success">成功</a></li>
+              </ul>
+              </span> <a class="btn btn-mini" href="#" rel="lead">Lead</a> </span>
+							<div class="preview">段落</div>
+							<div class="view" contenteditable="true">
+								<p><em>Git</em>是一个分布式的版本控制系统，最初由<b>Linus Torvalds</b>编写，用作Linux内核代码的管理。在推出后，Git在其它项目中也取得了很大成功，尤其是在Ruby社区中。 </p>
+							</div>
+						</div>
+						<div class="box box-element ui-draggable"> <a href="#close" class="remove label label-important"><i class="icon-remove icon-white"></i>删除</a> <span class="drag label"><i class="icon-move"></i>拖动</span>
+							<span class="configuration"><button type="button" class="btn btn-mini" data-target="#editorModal" role="button" data-toggle="modal">编辑</button></span>
+							<div class="preview">地址</div>
+							<div class="view">
+								<address contenteditable="true">
+									<strong>Twitter, Inc.</strong><br>
+									795 Folsom Ave, Suite 600<br>
+									San Francisco, CA 94107<br>
+									<abbr title="Phone">P:</abbr> (123) 456-7890
+								</address>
+							</div>
+						</div>
+						<div class="box box-element ui-draggable"> <a href="#close" class="remove label label-important"><i class="icon-remove icon-white"></i>删除</a> <span class="drag label"><i class="icon-move"></i>拖动</span> <span class="configuration"> <a class="btn btn-mini" href="#" rel="pull-right">右对齐</a> </span>
+							<div class="preview">引用块</div>
+							<div class="view clearfix">
+								<blockquote contenteditable="true">
+									<p>github是一个全球化的开源社区.</p>
+									<small>关键词 <cite title="Source Title">开源</cite></small> </blockquote>
+							</div>
+						</div>
+						<div class="box box-element ui-draggable"> <a href="#close" class="remove label label-important"><i class="icon-remove icon-white"></i>删除</a> <span class="drag label"><i class="icon-move"></i>拖动</span> <span class="configuration"><button type="button" class="btn btn-mini" data-target="#editorModal" role="button" data-toggle="modal">编辑</button> <a class="btn btn-mini" href="#" rel="unstyled">无样式</a> <a class="btn btn-mini" href="#" rel="inline">嵌入</a> </span>
+							<div class="preview">无序列表</div>
+							<div class="view">
+								<ul contenteditable="true">
+									<li>新闻资讯</li>
+									<li>体育竞技</li>
+									<li>娱乐八卦</li>
+									<li>前沿科技</li>
+									<li>环球财经</li>
+									<li>天气预报</li>
+									<li>房产家居</li>
+									<li>网络游戏</li>
+								</ul>
+							</div>
+						</div>
+						<div class="box box-element ui-draggable"> <a href="#close" class="remove label label-important"><i class="icon-remove icon-white"></i>删除</a> <span class="drag label"><i class="icon-move"></i>拖动</span> <span class="configuration"><button type="button" class="btn btn-mini" data-target="#editorModal" role="button" data-toggle="modal">编辑</button> <a class="btn btn-mini" href="#" rel="unstyled">无样式</a> <a class="btn btn-mini" href="#" rel="inline">嵌入</a> </span>
+							<div class="preview">有序列表</div>
+							<div class="view">
+								<ol contenteditable="true">
+									<li>新闻资讯</li>
+									<li>体育竞技</li>
+									<li>娱乐八卦</li>
+									<li>前沿科技</li>
+									<li>环球财经</li>
+									<li>天气预报</li>
+									<li>房产家居</li>
+									<li>网络游戏</li>
+								</ol>
+							</div>
+						</div>
+						<div class="box box-element ui-draggable"> <a href="#close" class="remove label label-important"><i class="icon-remove icon-white"></i>删除</a> <span class="drag label"><i class="icon-move"></i>拖动</span> <span class="configuration"><button type="button" class="btn btn-mini" data-target="#editorModal" role="button" data-toggle="modal">编辑</button> <a class="btn btn-mini" href="#" rel="dl-horizontal">竖向对齐</a> </span>
+							<div class="preview">详细描述</div>
+							<div class="view">
+								<dl contenteditable="true">
+									<dt>Rolex</dt>
+									<dd>劳力士创始人为汉斯.威尔斯多夫，1908年他在瑞士将劳力士注册为商标。</dd>
+									<dt>Vacheron Constantin</dt>
+									<dd>始创于1775年的江诗丹顿已有250年历史，</dd>
+									<dd>是世界上历史最悠久、延续时间最长的名表之一。</dd>
+									<dt>IWC</dt>
+									<dd>创立于1868年的万国表有“机械表专家”之称。</dd>
+									<dt>Cartier</dt>
+									<dd>卡地亚拥有150多年历史，是法国珠宝金银首饰的制造名家。</dd>
+								</dl>
+							</div>
+						</div>
+						<div class="box box-element ui-draggable"> <a href="#close" class="remove label label-important"><i class="icon-remove icon-white"></i>删除</a> <span class="drag label"><i class="icon-move"></i>拖动</span> <span class="configuration"><button type="button" class="btn btn-mini" data-target="#editorModal" role="button" data-toggle="modal">编辑</button> <span class="btn-group"> <a class="btn btn-mini dropdown-toggle" data-toggle="dropdown" href="#">样式 <span class="caret"></span></a>
+              <ul class="dropdown-menu">
+                <li class="active"><a href="#" rel="">默认</a></li>
+                <li class=""><a href="#" rel="table-striped">条纹</a></li>
+                <li class=""><a href="#" rel="table-bordered">边框</a></li>
+              </ul>
+              </span> <a class="btn btn-mini" href="#" rel="table-hover">鼠标指示</a> <a class="btn btn-mini" href="#" rel="table-condensed">紧凑</a> </span>
+							<div class="preview">表格</div>
+							<div class="view">
+								<table class="table" contenteditable="true">
+									<thead>
+									<tr>
+										<th>编号</th>
+										<th>产品</th>
+										<th>交付时间</th>
+										<th>状态</th>
+									</tr>
+									</thead>
+									<tbody>
+									<tr>
+										<td>1</td>
+										<td>TB - Monthly</td>
+										<td>01/04/2012</td>
+										<td>Default</td>
+									</tr>
+									<tr class="success">
+										<td>1</td>
+										<td>TB - Monthly</td>
+										<td>01/04/2012</td>
+										<td>Approved</td>
+									</tr>
+									<tr class="error">
+										<td>2</td>
+										<td>TB - Monthly</td>
+										<td>02/04/2012</td>
+										<td>Declined</td>
+									</tr>
+									<tr class="warning">
+										<td>3</td>
+										<td>TB - Monthly</td>
+										<td>03/04/2012</td>
+										<td>Pending</td>
+									</tr>
+									<tr class="info">
+										<td>4</td>
+										<td>TB - Monthly</td>
+										<td>04/04/2012</td>
+										<td>Call in to confirm</td>
+									</tr>
+									</tbody>
+								</table>
+							</div>
+						</div>
+						<div class="box box-element ui-draggable"> <a href="#close" class="remove label label-important"><i class="icon-remove icon-white"></i>删除</a> <span class="drag label"><i class="icon-move"></i>拖动</span> <span class="configuration"><button type="button" class="btn btn-mini" data-target="#editorModal" role="button" data-toggle="modal">编辑</button> <a class="btn btn-mini" href="#" rel="form-inline">嵌入</a> </span>
+							<div class="preview">提交表单</div>
+							<div class="view">
+								<form>
+									<fieldset>
+										<legend contenteditable="true">表单项</legend>
+										<label contenteditable="true">表签名</label>
+										<input type="text" placeholder="Type something…">
+										<span class="help-block" contenteditable="true">这里填写帮助信息.</span>
+										<label class="checkbox" contenteditable="true">
+											<input type="checkbox"> 勾选同意
+										</label>
+										<button type="submit" class="btn" contenteditable="true">提交</button>
+									</fieldset>
+								</form>
+							</div>
+						</div>
+						<div class="box box-element ui-draggable"> <a href="#close" class="remove label label-important"><i class="icon-remove icon-white"></i>删除</a> <span class="drag label"><i class="icon-move"></i>拖动</span> <span class="configuration"><button type="button" class="btn btn-mini" data-target="#editorModal" role="button" data-toggle="modal">编辑</button> <a class="btn btn-mini" href="#" rel="form-inline">嵌入</a> </span>
+							<div class="preview">搜索框</div>
+							<div class="view">
+								<form class="form-search">
+									<input class="input-medium search-query" type="text">
+									<button type="submit" class="btn" contenteditable="true">查找</button>
+								</form>
+							</div>
+						</div>
+						<div class="box box-element ui-draggable"> <a href="#close" class="remove label label-important"><i class="icon-remove icon-white"></i>删除</a> <span class="drag label"><i class="icon-move"></i>拖动</span> <span class="configuration"> </span>
+							<span class="configuration"><button type="button" class="btn btn-mini" data-target="#editorModal" role="button" data-toggle="modal">编辑</button></span>
+							<div class="preview">纵向表单</div>
+							<div class="view">
+								<form class="form-horizontal">
+									<div class="control-group">
+										<label class="control-label" for="inputEmail" contenteditable="true">邮箱</label>
+										<div class="controls">
+											<input id="inputEmail" placeholder="Email" type="text">
+										</div>
+									</div>
+									<div class="control-group">
+										<label class="control-label" for="inputPassword" contenteditable="true">密码</label>
+										<div class="controls">
+											<input id="inputPassword" placeholder="Password" type="password">
+										</div>
+									</div>
+									<div class="control-group">
+										<div class="controls">
+											<label class="checkbox" contenteditable="true">
+												<input type="checkbox">
+												Remember me </label>
+											<button type="submit" class="btn" contenteditable="true">登陆</button>
+										</div>
+									</div>
+								</form>
+							</div>
+						</div>
+						<div class="box box-element ui-draggable"> <a href="#close" class="remove label label-important"><i class="icon-remove icon-white"></i>删除</a> <span class="drag label"><i class="icon-move"></i>拖动</span> <span class="configuration"> <span class="btn-group"> <a class="btn btn-mini dropdown-toggle" data-toggle="dropdown" href="#">样式 <span class="caret"></span></a>
+              <ul class="dropdown-menu">
+                <li class="active"><a href="#" rel="">默认</a></li>
+                <li class=""><a href="#" rel="btn-primary">重点</a></li>
+                <li class=""><a href="#" rel="btn-info">信息</a></li>
+                <li class=""><a href="#" rel="btn-success">成功</a></li>
+                <li class=""><a href="#" rel="btn-warning">提醒</a></li>
+                <li class=""><a href="#" rel="btn-danger">危险</a></li>
+                <li class=""><a href="#" rel="btn-inverse">反转</a></li>
+                <li class=""><a href="#" rel="btn-link">链接</a></li>
+              </ul>
+              </span> <span class="btn-group"> <a class="btn btn-mini dropdown-toggle" data-toggle="dropdown" href="#">尺寸 <span class="caret"></span></a>
+              <ul class="dropdown-menu">
+                <li class=""><a href="#" rel="btn-large">大</a></li>
+                <li class="active"><a href="#" rel="">中</a></li>
+                <li class=""><a href="#" rel="btn-small">小</a></li>
+                <li class=""><a href="#" rel="btn-mini">微型</a></li>
+              </ul>
+              </span> <a class="btn btn-mini" href="#" rel="btn-block">通栏</a> <a class="btn btn-mini" href="#" rel="disabled">禁用</a> </span>
+							<div class="preview">按钮</div>
+							<div class="view">
+								<button class="btn" type="button" contenteditable="true">按钮</button>
+							</div>
+						</div>
+						<div class="box box-element ui-draggable"> <a href="#close" class="remove label label-important"><i class="icon-remove icon-white"></i>删除</a> <span class="drag label"><i class="icon-move"></i>拖动</span> <span class="configuration"> <span class="btn-group"> <a class="btn btn-mini dropdown-toggle" data-toggle="dropdown" href="#">样式 <span class="caret"></span></a>
+              <ul class="dropdown-menu">
+                <li class="active"><a href="#" rel="">默认</a></li>
+                <li class=""><a href="#" rel="img-rounded">圆角</a></li>
+                <li class=""><a href="#" rel="img-circle">圆圈</a></li>
+                <li class=""><a href="#" rel="img-polaroid">相框</a></li>
+              </ul>
+              </span> </span>
+							<div class="preview">图片</div>
+						</div>
+					</li>
+				</ul>
+				<ul class="nav nav-list accordion-group">
+					<li class="nav-header"><i class="icon-plus icon-white"></i> 组件
+						<div class="pull-right popover-info"><i class="icon-question-sign "></i>
+							<div class="popover fade right">
+								<div class="arrow"></div>
+								<h3 class="popover-title">帮助</h3>
+								<div class="popover-content">拖放组件到布局框内. 拖入后你可以设置组件样式. 查看这里获取更多帮助 <a target="_blank" href="http://twitter.github.io/bootstrap/components.html">Components.</a></div>
+							</div>
+						</div>
+					</li>
+					<li style="display: none;" class="boxes" id="elmComponents">
+						<div class="box box-element ui-draggable"> <a href="#close" class="remove label label-important"><i class="icon-remove icon-white"></i>删除</a> <span class="drag label"><i class="icon-move"></i>拖动</span> <span class="configuration"> <span class="btn-group"> <a class="btn btn-mini dropdown-toggle" data-toggle="dropdown" href="#">方向<span class="caret"></span></a>
+              <ul class="dropdown-menu">
+                <li class="active"><a href="#" rel="">横向</a></li>
+                <li class=""><a href="#" rel="btn-group-vertical">竖向</a></li>
+              </ul>
+              </span> </span>
+							<div class="preview">按钮组</div>
+							<div class="view">
+								<div class="btn-group">
+									<button class="btn" type="button"><i class="icon-align-left"></i></button>
+									<button class="btn" type="button"><i class="icon-align-center"></i></button>
+									<button class="btn" type="button"><i class="icon-align-right"></i></button>
+									<button class="btn" type="button"><i class="icon-align-justify"></i></button>
+								</div>
+							</div>
+						</div>
+						<div class="box box-element ui-draggable"> <a href="#close" class="remove label label-important"><i class="icon-remove icon-white"></i>删除</a> <span class="drag label"><i class="icon-move"></i>拖动</span> <span class="configuration"><button type="button" class="btn btn-mini" data-target="#editorModal" role="button" data-toggle="modal">编辑</button> <a class="btn btn-mini" href="#" rel="dropup">上拉</a> </span>
+							<div class="preview">下拉菜单</div>
+							<div class="view">
+								<div class="btn-group">
+									<button class="btn" contenteditable="true">Action</button>
+									<button data-toggle="dropdown" class="btn dropdown-toggle"><span class="caret"></span></button>
+									<ul class="dropdown-menu" contenteditable="true">
+										<li><a href="#">操作</a></li>
+										<li><a href="#">设置栏目</a></li>
+										<li><a href="#">更多设置</a></li>
+										<li class="divider"></li>
+										<li class="dropdown-submenu"> <a tabindex="-1" href="#">更多选项</a>
+											<ul class="dropdown-menu">
+												<li><a href="#">操作</a></li>
+												<li><a href="#">设置栏目</a></li>
+												<li><a href="#">更多设置</a></li>
+											</ul>
+										</li>
+									</ul>
+								</div>
+							</div>
+						</div>
+						<div class="box box-element ui-draggable"> <a href="#close" class="remove label label-important"><i class="icon-remove icon-white"></i>删除</a> <span class="drag label"><i class="icon-move"></i>拖动</span> <span class="configuration"><button type="button" class="btn btn-mini" data-target="#editorModal" role="button" data-toggle="modal">编辑</button> <span class="btn-group"> <a class="btn btn-mini dropdown-toggle" data-toggle="dropdown" href="#">样式 <span class="caret"></span></a>
+              <ul class="dropdown-menu">
+                <li class=""><a href="#" rel="nav-tabs">线框</a></li>
+                <li class=""><a href="#" rel="nav-pills">图钉</a></li>
+              </ul>
+              </span> <a class="btn btn-mini" href="#" rel="nav-stacked">切换格式</a> </span>
+							<div class="preview">导航</div>
+							<div class="view">
+								<ul class="nav nav-tabs" contenteditable="true">
+									<li class="active"><a href="#">首页</a></li>
+									<li><a href="#">资料</a></li>
+									<li class="disabled"><a href="#">信息</a></li>
+									<li class="dropdown pull-right"> <a href="#" data-toggle="dropdown" class="dropdown-toggle">下拉 <b class="caret"></b></a>
+										<ul class="dropdown-menu">
+											<li><a href="#">操作</a></li>
+											<li><a href="#">设置栏目</a></li>
+											<li><a href="#">更多设置</a></li>
+											<li class="divider"></li>
+											<li><a href="#">分割线</a></li>
+										</ul>
+									</li>
+								</ul>
+							</div>
+						</div>
+						<div class="box box-element ui-draggable"> <a href="#close" class="remove label label-important"><i class="icon-remove icon-white"></i>删除</a> <span class="drag label"><i class="icon-move"></i>拖动</span> <span class="configuration"><button type="button" class="btn btn-mini" data-target="#editorModal" role="button" data-toggle="modal">编辑</button> <a class="btn btn-mini" href="#" rel="well">嵌入</a> </span>
+							<div class="preview">导航列表</div>
+							<div class="view">
+								<ul class="nav nav-list" contenteditable="true">
+									<li class="nav-header">列表标题</li>
+									<li class="active"><a href="#">首页</a></li>
+									<li><a href="#">库</a></li>
+									<li><a href="#">应用</a></li>
+									<li class="nav-header">功能列表</li>
+									<li><a href="#">资料</a></li>
+									<li><a href="#">设置</a></li>
+									<li class="divider"></li>
+									<li><a href="#">帮助</a></li>
+								</ul>
+							</div>
+						</div>
+						<div class="box box-element ui-draggable"> <a href="#close" class="remove label label-important"><i class="icon-remove icon-white"></i>删除</a> <span class="drag label"><i class="icon-move"></i>拖动</span>
+							<span class="configuration"><button type="button" class="btn btn-mini" data-target="#editorModal" role="button" data-toggle="modal">编辑</button></span>
+							<div class="preview">面包导航</div>
+							<div class="view">
+								<ul class="breadcrumb" contenteditable="true">
+									<li><a href="#">主页</a> <span class="divider">/</span></li>
+									<li><a href="#">类目</a> <span class="divider">/</span></li>
+									<li class="active">主题</li>
+								</ul>
+							</div>
+						</div>
+						<div class="box box-element ui-draggable"> <a href="#close" class="remove label label-important"><i class="icon-remove icon-white"></i>删除</a> <span class="drag label"><i class="icon-move"></i>拖动</span> <span class="configuration"><button type="button" class="btn btn-mini" data-target="#editorModal" role="button" data-toggle="modal">编辑</button> <span class="btn-group"> <a class="btn btn-mini dropdown-toggle" data-toggle="dropdown" href="#">尺寸 <span class="caret"></span></a>
+              <ul class="dropdown-menu">
+                <li class=""><a href="#" rel="pagination-large">大</a></li>
+                <li class="active"><a href="#" rel="">中</a></li>
+                <li class=""><a href="#" rel="pagination-small">小</a></li>
+                <li class=""><a href="#" rel="pagination-mini">微型</a></li>
+              </ul>
+              </span> <span class="btn-group"> <a class="btn btn-mini dropdown-toggle" data-toggle="dropdown" href="#">位置 <span class="caret"></span></a>
+              <ul class="dropdown-menu">
+                <li class="active"><a href="#" rel="">靠左</a></li>
+                <li class=""><a href="#" rel="pagination-centered">居中</a></li>
+                <li class=""><a href="#" rel="pagination-right">靠右</a></li>
+              </ul>
+              </span> </span>
+							<div class="preview">翻页</div>
+							<div class="view">
+								<div class="pagination">
+									<ul contenteditable="true">
+										<li><a href="#">上一页</a></li>
+										<li><a href="#">1</a></li>
+										<li><a href="#">2</a></li>
+										<li><a href="#">3</a></li>
+										<li><a href="#">4</a></li>
+										<li><a href="#">5</a></li>
+										<li><a href="#">下一页</a></li>
+									</ul>
+								</div>
+							</div>
+						</div>
+						<div class="box box-element ui-draggable"> <a href="#close" class="remove label label-important"><i class="icon-remove icon-white"></i>删除</a> <span class="drag label"><i class="icon-move"></i>拖动</span> <span class="configuration"><button type="button" class="btn btn-mini" data-target="#editorModal" role="button" data-toggle="modal">编辑</button> <span class="btn-group"> <a class="btn btn-mini dropdown-toggle" data-toggle="dropdown" href="#">样式 <span class="caret"></span></a>
+              <ul class="dropdown-menu">
+                <li class="active"><a href="#" rel="">默认</a></li>
+                <li class=""><a href="#" rel="badge-success">成功</a></li>
+                <li class=""><a href="#" rel="badge-warning">警告</a></li>
+                <li class=""><a href="#" rel="badge-important">重要</a></li>
+                <li class=""><a href="#" rel="badge-info">提示</a></li>
+                <li class=""><a href="#" rel="badge-inverse">倒数</a></li>
+              </ul>
+              </span> </span>
+							<div class="preview">文字标签</div>
+							<div class="view"> <span class="label" contenteditable="true">文字标签</span> </div>
+						</div>
+						<div class="box box-element ui-draggable"> <a href="#close" class="remove label label-important"><i class="icon-remove icon-white"></i>删除</a> <span class="drag label"><i class="icon-move"></i>拖动</span> <span class="configuration"><button type="button" class="btn btn-mini" data-target="#editorModal" role="button" data-toggle="modal">编辑</button> <span class="btn-group"> <a class="btn btn-mini dropdown-toggle" data-toggle="dropdown" href="#">样式 <span class="caret"></span></a>
+              <ul class="dropdown-menu">
+                <li class="active"><a href="#" rel="">默认</a></li>
+                <li class=""><a href="#" rel="badge-success">成功</a></li>
+                <li class=""><a href="#" rel="badge-warning">警告</a></li>
+                <li class=""><a href="#" rel="badge-important">重要</a></li>
+                <li class=""><a href="#" rel="badge-info">提示</a></li>
+                <li class=""><a href="#" rel="badge-inverse">倒数</a></li>
+              </ul>
+              </span> </span>
+							<div class="preview">微标</div>
+							<div class="view"> <span class="badge" contenteditable="true">1</span> </div>
+						</div>
+						<div class="box box-element ui-draggable"> <a href="#close" class="remove label label-important"><i class="icon-remove icon-white"></i>删除</a> <span class="drag label"><i class="icon-move"></i>拖动</span> <span class="configuration"><button type="button" class="btn btn-mini" data-target="#editorModal" role="button" data-toggle="modal">编辑</button> <a class="btn btn-mini" href="#" rel="well">嵌入</a> </span>
+							<div class="preview">概述</div>
+							<div class="view">
+								<div class="hero-unit" contenteditable="true">
+									<h1>Hello, world!</h1>
+									<p>这是一个可视化布局模板, 你可以点击模板里的文字进行修改, 也可以通过点击弹出的编辑框进行富文本修改. 拖动区块能实现排序. </p>
+									<p><a class="btn btn-primary btn-large" href="#">参看更多 »</a></p>
+								</div>
+							</div>
+						</div>
+						<div class="box box-element ui-draggable"> <a href="#close" class="remove label label-important"><i class="icon-remove icon-white"></i>删除</a> <span class="drag label"><i class="icon-move"></i>拖动</span>
+							<span class="configuration"><button type="button" class="btn btn-mini" data-target="#editorModal" role="button" data-toggle="modal">编辑</button></span>
+							<div class="preview">页标题</div>
+							<div class="view">
+								<div class="page-header" contenteditable="true">
+									<h1>页标题范例 <small>此处编写页标题</small></h1>
+								</div>
+							</div>
+						</div>
+						<div class="box box-element ui-draggable"> <a href="#close" class="remove label label-important"><i class="icon-remove icon-white"></i>删除</a> <span class="drag label"><i class="icon-move"></i>拖动</span>
+							<span class="configuration"><button type="button" class="btn btn-mini" data-target="#editorModal" role="button" data-toggle="modal">编辑</button></span>
+							<div class="preview">文本</div>
+							<div class="view">
+								<h2 contenteditable="true">标题</h2>
+								<p contenteditable="true">本可视化布局程序在HTML5浏览器上运行更加完美, 能实现自动本地化保存, 即使关闭了网页, 下一次打开仍然能恢复上一次的操作.</p>
+								<p><a class="btn" href="#" contenteditable="true">查看更多 »</a></p>
+							</div>
+						</div>
+						<div class="box box-element ui-draggable"> <a href="#close" class="remove label label-important"><i class="icon-remove icon-white"></i>删除</a> <span class="drag label"><i class="icon-move"></i>拖动</span>
+							<span class="configuration"><button type="button" class="btn btn-mini" data-target="#editorModal" role="button" data-toggle="modal">编辑</button></span>
+							<div class="preview">预览列表</div>
+							<div class="view">
+								<ul class="thumbnails">
+									<li class="span4">
+										<div class="thumbnail">
+											<div class="caption" contenteditable="true">
+												<h3>冯诺尔曼结构</h3>
+												<p>也称普林斯顿结构，是一种将程序指令存储器和数据存储器合并在一起的存储器结构。程序指令存储地址和数据存储地址指向同一个存储器的不同物理位置。</p>
+												<p><a class="btn btn-primary" href="#">浏览</a> <a class="btn" href="#">分享</a></p>
+											</div>
+										</div>
+									</li>
+									<li class="span4">
+										<div class="thumbnail">
+											<div class="caption" contenteditable="true">
+												<h3>哈佛结构</h3>
+												<p>哈佛结构是一种将程序指令存储和数据存储分开的存储器结构，它的主要特点是将程序和数据存储在不同的存储空间中，进行独立编址。</p>
+												<p><a class="btn btn-primary" href="#">浏览</a> <a class="btn" href="#">分享</a></p>
+											</div>
+										</div>
+									</li>
+									<li class="span4">
+										<div class="thumbnail">
+											<div class="caption" contenteditable="true">
+												<h3>改进型哈佛结构</h3>
+												<p>改进型的哈佛结构具有一条独立的地址总线和一条独立的数据总线，两条总线由程序存储器和数据存储器分时复用，使结构更紧凑。</p>
+												<p><a class="btn btn-primary" href="#">浏览</a> <a class="btn" href="#">分享</a></p>
+											</div>
+										</div>
+									</li>
+								</ul>
+							</div>
+						</div>
+						<div class="box box-element ui-draggable"> <a href="#close" class="remove label label-important"><i class="icon-remove icon-white"></i>删除</a> <span class="drag label"><i class="icon-move"></i>拖动</span> <span class="configuration"> <span class="btn-group"> <a class="btn btn-mini dropdown-toggle" data-toggle="dropdown" href="#">样式 <span class="caret"></span></a>
+              <ul class="dropdown-menu">
+                <li class="active"><a href="#" rel="">默认</a></li>
+                <li class=""><a href="#" rel="progress-info">提示</a></li>
+                <li class=""><a href="#" rel="progress-success">成功</a></li>
+                <li class=""><a href="#" rel="progress-warning">警告</a></li>
+                <li class=""><a href="#" rel="progress-danger">危险</a></li>
+              </ul>
+              </span> <a class="btn btn-mini" href="#" rel="progress-striped">条纹</a> <a class="btn btn-mini" href="#" rel="active">动画</a> </span>
+							<div class="preview">进度条</div>
+							<div class="view">
+								<div class="progress">
+									<div class="bar" style="width: 60%;"></div>
+								</div>
+							</div>
+						</div>
+						<div class="box box-element ui-draggable"> <a href="#close" class="remove label label-important"><i class="icon-remove icon-white"></i>删除</a> <span class="drag label"><i class="icon-move"></i>拖动</span> <span class="configuration"><button type="button" class="btn btn-mini" data-target="#editorModal" role="button" data-toggle="modal">编辑</button> <a class="btn btn-mini" href="#" rel="well">嵌入</a> </span>
+							<div class="preview">嵌入媒体</div>
+							<div class="view">
+								<div class="media">
+									<div class="media-body" contenteditable="true">
+										<h4 class="media-heading">嵌入媒体标题</h4>
+										请尽量使用HTML5兼容的视频格式和视频代码实现视频播放, 以达到更好的体验效果. </div>
+								</div>
+							</div>
+						</div>
+					</li>
+				</ul>
+				<ul class="nav nav-list accordion-group">
+					<li class="nav-header"><i class="icon-plus icon-white"></i> 应用扩展 </li>
+					<li style="display: none;" class="boxes mute" id="elmComm">
+						<div class="preview">建设中...</div>
+					</li>
+				</ul>
+			</div>
+		</div>
+		<!--/span-->
+
+		<div class="demo ui-sortable">
+			<div style="display: block;" class="lyrow ui-draggable">
+				<div class="view">
+					<div class="row-fluid clearfix">
+						<div class="column ui-sortable delet_content" id="sortable" style="min-height:770px"></div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<!--<div class="view">
+			<div style="min-height: 590px;" class="demo span12 column">
+			</div>
+		</div>-->
+		<!--/span-->
+		<div id="download-layout">
+			<div class="container-fluid"></div>
+		</div>
+	</div>
+	<!--/row-->
+</div>
+<!--/.fluid-container-->
+<div class="modal hide fade" role="dialog" id="editorModal">
+	<div class="modal-header"> <a class="close" data-dismiss="modal">×</a>
+		<h4><ul class="margin_reight"><li>编辑</li><li id="yuanma">源码</li></ul></h4>
+	</div>
+	<div class="modal-body">
+		<div class="show_cod">
+			<p class="redact_HTML qd">
+
+			</p>
+			<p class="sound_code qd">
+				<textarea></textarea>
+			</p>
+		</div>
+	</div>
+	<div class="modal-footer"> <a id="savecontent" class="btn btn-primary" data-dismiss="modal">保存</a> <a id="colse_but" class="btn" data-dismiss="modal">关闭</a> </div>
+</div>
+<div class="modalerst hide fade" role="dialog" id="Modal">
+	<div class="modal-header"> <a class="close" data-dismiss="modal" id="close_img">×</a>
+		<h4>图像属性</h4>
+	</div>
+	<div class="modal-body">
+
+	</div>
+	<div class="modal-footer"> <a id="savecon" class="btn btn-primary" data-dismiss="modal">保存</a> <a class="btn" data-dismiss="modal" id="amend_cole">关闭</a> </div>
+</div>
+<div class="modal hide fade" role="dialog" id="downloadModal">
+	<div class="modal-header"> <a class="close" data-dismiss="modal">×</a>
+		<h3>下载</h3>
+	</div>
+	<div class="modal-body">
+		<p>已在下面生成干净的HTML, 可以复制粘贴代码到你的项目.</p>
+		<div class="btn-group">
+			<button type="button" id="fluidPage" class="active btn btn-info"><i class="icon-fullscreen icon-white"></i> 自适应宽度</button>
+			<button type="button" class="btn btn-info" id="fixedPage"><i class="icon-screenshot icon-white"></i> 固定宽度</button>
+		</div>
+		<br>
+		<br>
+		<p>
+			<textarea></textarea>
+		</p>
+	</div>
+	<div class="modal-footer"> <a class="btn" data-dismiss="modal">关闭</a> </div>
+</div>
+<div class="modal hide fade" role="dialog" id="shareModal">
+	<div class="modal-header"> <a class="close" data-dismiss="modal">×</a>
+		<h3>保存</h3>
+	</div>
+	<div class="modal-body">保存成功</div>
+	<div class="modal-footer"> <a class="btn" data-dismiss="modal">Close</a> </div>
+</div>
+</body>
+<script type="text/javascript" src="js/jquery-1.11.3.js"></script>
+<script type="text/javascript" src="js/bootstrap.min.js"></script>
+<script type="text/javascript" src="js/jquery-ui.js"></script>
+<script type="text/javascript" src="js/jquery.ui.widget.js"></script>
+<script type="text/javascript" src="js/unpack.js"></script>
+<!--<script type="text/javascript" src="js/index.js"></script>
+
+
+<script type="text/javascript" src="js/Caesar.js"></script>
+<script type="text/javascript" src="js/bb.js"></script>
+<script type="text/javascript" src="js/banner.js"></script>
+<script type="text/javascript" src="js/carousel.js"></script>-->
+
+
+<script type="text/javascript">
+	$(window).ready(function(){
+		$('body').find('.slide').each(function(){
+			$(this).TimingOfSliding({"timer": 3000});
+		});
+		setTimeout(function(){
+			$('body').find('.carrousel').each(function(){
+				$(this).mylunbo();
+			});
+			$('body').find('.bottom_reaction').each(function(){
+				$(this).Product();
+			});
+			controlCarousel.init();
+		},300);
+	})
+</script>
+</html>
